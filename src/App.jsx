@@ -216,7 +216,7 @@ function LainnyaAccordion({ items }) {
 
 // ===== Konten Regulasi Rekening (RPL) — POV Satker, PMK-182/PMK.05/2017 =====
 const jenisRPL = [
-  { kode: "RPL PS", nama: "Rekening Penampungan Sementara", ket: "Paling umum dipakai di DJP — menampung penerimaan dan/atau pengeluaran sementara untuk tujuan tertentu.", tampil: true },
+  { kode: "RPL PS", nama: "Rekening Penampungan Sementara", ket: "Paling umum digunakan di DJP — menampung penerimaan dan/atau pengeluaran sementara untuk tujuan tertentu.", tampil: true },
   { kode: "PDT", nama: "Rekening Penampungan Dana Titipan", ket: "Menampung dana titipan terkait kasus hukum/sitaan.", tampil: true },
   { kode: "BLU", nama: "Rekening Milik BLU", ket: "Untuk satker berstatus Badan Layanan Umum." },
   { kode: "PWK", nama: "Rekening Milik Perwakilan RI", ket: "Khusus perwakilan RI di luar negeri." },
@@ -307,9 +307,10 @@ function IsuTerkiniPenagihanPage({ onBack }) {
         <h2 className="text-xl font-semibold mb-6" style={fontDisplay}>Alur Pembukaan</h2>
         <div className="flex flex-col">
           {[
-            { no: "1", t: "Surat Permohonan ke KPPN", d: "Bendahara membuat surat permohonan izin pembukaan rekening ke KPPN mitra, ditandatangani Kepala Kantor selaku KPA." },
+            { no: "1", t: "Surat Permohonan ke KPPN", d: <>Bendahara membuat surat permohonan izin pembukaan rekening ke KPPN mitra, ditandatangani Kepala Kantor selaku KPA. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQDDoGC0asNATY8hdwYT8bbWAUuzN3rKYNUFrcg9LLhg2QY?e=19NROY" tone="dark">Buka format surat permohonan</InlineDocLink></> },
             { no: "2", t: "Surat Izin dari KPPN", d: "Setelah izin diberikan, surat izin dari KPPN tersebut berlaku selama 15 hari." },
             { no: "3", t: "Proses Pembukaan ke Bank", d: "Bendahara membuka rekening ke Bank Cabang yang dituju (Bank Mandiri, BRI, BNI, atau BSI). Proses pembukaan mengikuti ketentuan perbankan." },
+            { no: "4", t: "Laporan Pembukaan ke KPPN", d: <>Setelah rekening dibuka, Bendahara menyampaikan laporan pembukaan rekening kepada KPPN paling lambat 20 hari kerja sejak surat persetujuan terbit. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQDwl5i-ObDOTra66gcP5pVIAXH6Cx8-yX2UlE1tRXKO_GI?e=SffUsm" tone="dark">Buka format laporan pembukaan</InlineDocLink></> },
           ].map((s) => (
             <div key={s.no} className="flex gap-5 p-5" style={{ borderTop: `1px solid ${c.line}` }}>
               <span className="flex-shrink-0 flex items-center justify-center text-sm font-semibold" style={{ width: 32, height: 32, border: `1px solid ${c.maroon}`, color: c.maroon, ...fontMono }}>{s.no}</span>
@@ -331,7 +332,7 @@ function IsuTerkiniPenagihanPage({ onBack }) {
             ["Jenis Rekening", "Dibuka dengan jenis Rekening Lainnya (RPL) untuk Penampungan Sementara (PS)."],
             ["Treasury National Pooling (TNP)", "Rekening RPL PS didaftarkan sebagai TNP dan bebas biaya/pajak sebagaimana ketentuan Rekening Pemerintah."],
             ["Masa Aktif", "Bendahara menyampaikan ke Bank agar rekening tidak ditutup otomatis apabila tidak ada transaksi."],
-            ["Tidak Boleh Dobel dengan RPL PS Tukin", "Tidak diperkenankan menggunakan RPL PS Tukin untuk Penagihan. Harus buka/pakai RPL PS khusus Penagihan — prinsipnya, 1 rekening 1 tujuan penggunaan."],
+            ["Tidak Boleh Dobel dengan RPL PS Tukin", "Tidak diperkenankan menggunakan RPL PS Tukin untuk Penagihan. Harus buka/menggunakan RPL PS khusus Penagihan — prinsipnya, 1 rekening 1 tujuan penggunaan."],
             ["Internet Banking", "Sangat direkomendasikan untuk dimintakan akun internet banking ke Bank Cabang."],
           ].map(([t, d], i) => (
             <div key={i} className="p-5" style={{ border: `1px solid ${c.line}` }}>
@@ -430,6 +431,30 @@ function IsuTerkiniPenagihanPage({ onBack }) {
         </div>
       </section>
 
+      {/* Format dokumen terkait */}
+      <section className="mb-14">
+        <h2 className="text-xl font-semibold mb-2" style={fontDisplay}>Format Dokumen Terkait</h2>
+        <p className="text-sm mb-6" style={{ color: c.inkSoft }}>
+          RPL PS untuk Penagihan menggunakan format dokumen yang sama dengan pengelolaan Rekening Lainnya (RPL)
+          pada umumnya sesuai PMK-182/PMK.05/2017. Seluruh format tersedia pada SharePoint Kemenkeu.
+        </p>
+        <div className="flex flex-col gap-3">
+          {[
+            ["Surat Permohonan Persetujuan Pembukaan Rekening", "Digunakan pada tahap awal pengajuan izin pembukaan ke KPPN mitra kerja.", "https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQDDoGC0asNATY8hdwYT8bbWAUuzN3rKYNUFrcg9LLhg2QY?e=19NROY"],
+            ["Surat Laporan Pembukaan Rekening", "Disampaikan kepada KPPN paling lambat 20 hari kerja sejak surat persetujuan terbit.", "https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQDwl5i-ObDOTra66gcP5pVIAXH6Cx8-yX2UlE1tRXKO_GI?e=SffUsm"],
+            ["Berita Acara Serah Terima (BAST) Akun Perbankan", "Digunakan apabila terjadi mutasi KPA dan/atau Bendahara pengelola rekening.", "https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQDUnTA1skPpQYHxNDkvC9xCAeRXR_fwktLP_LPEHlziWIk?e=3PkRTY"],
+            ["Surat Perubahan Data Pemegang CMS (KPA/Bendahara)", "Diajukan kepada bank apabila terjadi pergantian pengelola rekening.", "https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQBXWDXnDcMZQ4UA2TfJIW1fATPOCPQN1WiP2Zu_YzMLkfg?e=fiVliU"],
+            ["Surat Laporan Penutupan Rekening", "Digunakan apabila rekening pada akhirnya perlu ditutup, disampaikan paling lambat 5 hari kerja setelah tanggal penutupan.", "https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQBLxADlMoF8R4Z4aR_gLFV8AaR-prjccxNwXFa7yQymbno?e=kRD5aG"],
+          ].map(([t, d, href], i) => (
+            <div key={i} className="p-5" style={{ border: `1px solid ${c.line}` }}>
+              <p className="text-sm font-semibold mb-1.5">{t}</p>
+              <p className="text-sm mb-3" style={{ color: c.inkSoft }}>{d}</p>
+              <InlineDocLink href={href} tone="dark">Buka format</InlineDocLink>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Ketentuan penutup */}
       <section>
         <h2 className="text-xl font-semibold mb-5" style={fontDisplay}>Ketentuan Penutup</h2>
@@ -516,10 +541,10 @@ function RegulasiRekeningContent({ onBack }) {
       <section className="mb-14">
         <h2 className="text-xl font-semibold mb-2" style={fontDisplay}>Jenis-Jenis Rekening Lainnya (RPL)</h2>
         <p className="text-sm mb-6" style={{ color: c.inkSoft }}>
-          RPL PS dan PDT paling sering dipakai di DJP — 7 jenis RPL lainnya bisa dibuka lewat "Lainnya" di bawah.
+          RPL PS dan PDT paling sering digunakan di DJP — 7 jenis RPL lainnya dapat dilihat pada bagian "Lainnya" di bawah.
         </p>
         <div className="flex flex-col" style={{ border: `1px solid ${c.line}` }}>
-          {/* RPL PS & PDT — selalu terbuka, paling sering dipakai di DJP */}
+          {/* RPL PS & PDT — selalu terbuka, paling sering digunakan di DJP */}
           {jenisRPL.filter((j) => j.tampil).map((j, i) => (
             <div
               key={j.kode}
@@ -541,7 +566,7 @@ function RegulasiRekeningContent({ onBack }) {
             </div>
           ))}
 
-          {/* Sisanya — satu accordion "Lainnya" biar halaman gak penuh */}
+          {/* Sisanya — satu accordion "Lainnya" agar halaman tidak terlalu panjang */}
           <LainnyaAccordion items={jenisRPL.filter((j) => !j.tampil)} />
         </div>
       </section>
@@ -606,7 +631,7 @@ const faseOperasional = [
   {
     no: "01",
     title: "Pembukaan Rekening",
-    summary: "Ajukan permohonan ke KPPN mitra kerja sebelum rekening bisa dipakai.",
+    summary: "Ajukan permohonan ke KPPN mitra kerja sebelum rekening bisa digunakan.",
     points: [
       <><strong style={{ color: c.ink }}>Ajukan surat permohonan persetujuan pembukaan Rekening ke KPPN mitra kerja</strong> — cantumkan tujuan penggunaan, sumber dana, mekanisme penyaluran dana, dan perlakuan bunga/jasa giro. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQDDoGC0asNATY8hdwYT8bbWAUuzN3rKYNUFrcg9LLhg2QY?e=19NROY" tone="dark">Buka format surat permohonan</InlineDocLink></>,
       "Lampirkan surat kuasa dari KPA.",
@@ -622,9 +647,9 @@ const faseOperasional = [
     title: "Operasional Harian",
     summary: "Cara mendebit, mencatat, dan mengelola bunga/jasa giro rekening.",
     points: [
-      "Pendebitan dilakukan lewat internet banking, atau lewat cek/bilyet giro. RPL tidak menerbitkan kartu debit — beda dari Rekening Virtual.",
+      "Pendebitan dilakukan melalui internet banking, atau melalui cek/bilyet giro. RPL tidak menerbitkan kartu debit — berbeda dengan Rekening Virtual.",
       "Bendahara satker wajib membukukan dan mempertanggungjawabkan seluruh dana yang ada di rekening.",
-      <>Bunga/jasa giro: jika rekening sudah ikut program TNP, penyetoran dikonsolidasikan otomatis. Jika belum ikut TNP, satker menyetorkan sendiri ke Kas Negara setiap akhir bulan. <strong style={{ color: c.maroon }}>Sangat dianjurkan mendaftarkan rekening ke program TNP</strong> untuk memudahkan pengelolaan.</>,
+      <>Bunga/jasa giro: apabila rekening telah terdaftar pada program TNP, penyetoran dikonsolidasikan otomatis. Apabila belum terdaftar, satker menyetorkan sendiri ke Kas Negara setiap akhir bulan. <strong style={{ color: c.maroon }}>Sangat dianjurkan mendaftarkan rekening ke program TNP</strong> untuk memudahkan pengelolaan.</>,
     ],
   },
   {
@@ -645,7 +670,7 @@ const faseOperasional = [
     points: [
       "Rekening dikategorikan pasif jika tidak ada transaksi debit maupun kredit selama 1 tahun sejak transaksi terakhir.",
       "KPPN akan mengirim surat pemberitahuan rekening pasif 6 bulan sebelum batas waktu penutupan.",
-      "Satker wajib menutup rekening yang sudah tidak sesuai tujuan penggunaannya dan memindahkan saldonya ke Kas Negara.",
+      "Satker wajib menutup rekening yang telah tidak sesuai dengan tujuan penggunaannya dan memindahkan saldonya ke Kas Negara.",
       <>Sampaikan laporan penutupan rekening ke KPPN paling lambat 5 hari kerja setelah tanggal penutupan, dilampiri bukti penutupan dan bukti pemindahbukuan/setor ke Kas Negara. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQBLxADlMoF8R4Z4aR_gLFV8AaR-prjccxNwXFa7yQymbno?e=kRD5aG" tone="dark">Buka format laporan</InlineDocLink></>,
     ],
   },
@@ -757,7 +782,7 @@ function OperasionalRekeningContent({ onBack, onGoToFormat }) {
       </h1>
       <p className="text-sm mb-10 max-w-2xl" style={{ color: c.inkSoft }}>
         Empat fase siklus hidup Rekening Lainnya (RPL), dari sudut pandang satker sebagai pengguna rekening.
-        Klik tiap fase untuk lihat detailnya.
+        Pilih setiap fase untuk menampilkan uraian lengkap.
       </p>
 
       <div className="flex flex-col">
@@ -916,7 +941,7 @@ function PerubahanRekeningContent({ onBack, onOpenMutasiDetail, onGoToFormat }) 
         Perubahan Rekening
       </h1>
       <p className="text-sm mb-8 max-w-2xl" style={{ color: c.inkSoft }}>
-        Tiga jenis perubahan yang paling sering dihadapi satker. Klik tiap jenis untuk lihat langkah-langkahnya.
+        Tiga jenis perubahan yang paling sering dihadapi satker. Pilih setiap jenis untuk menampilkan langkah-langkahnya.
       </p>
 
       <div className="flex gap-4 p-5 mb-10" style={{ background: c.paperDim, border: `1px solid ${c.maroon}` }}>
@@ -1046,8 +1071,7 @@ function FormatDokumenContent({ onBack }) {
         Format Dokumen
       </h1>
       <p className="text-sm mb-12 max-w-2xl" style={{ color: c.inkSoft }}>
-        Format surat untuk pengelolaan Rekening Lainnya (RPL), tersedia di SharePoint Kemenkeu — klik untuk
-        membuka, tinggal isi data satker dan kirim.
+        Format surat untuk pengelolaan Rekening Lainnya (RPL), tersedia di SharePoint Kemenkeu — dapat dibuka melalui tautan yang disediakan, kemudian dilengkapi data satker dan disampaikan sesuai ketentuan.
       </p>
 
       <div className="flex flex-col gap-14">
@@ -1242,7 +1266,7 @@ function KasusKP2KP({ onGoToFormat }) {
       {open && (
         <div className="p-5">
           <p className="text-sm mb-4" style={{ color: c.inkSoft }}>
-            Berlaku untuk KP2KP yang perlu membuka rekening VA baru, memakai bank yang sama dengan Bank BPG
+            Berlaku untuk KP2KP yang perlu membuka rekening VA baru, menggunakan bank yang sama dengan Bank BPG
             induknya.
           </p>
           <ol className="flex flex-col gap-3">
@@ -1311,7 +1335,7 @@ function OperasionalHarianExtra() {
             </React.Fragment>
           ))}
         </div>
-        <p className="text-xs mb-5" style={{ color: c.inkSoft }}>* sangat disarankan. Setting user MCR hanya bisa dilakukan admin & sysadmin — akses ini seharusnya sudah tercantum di BAST dari pejabat sebelumnya. Kalau belum diketahui, segera hubungi Bank Cabang atau Grup Rekening.</p>
+        <p className="text-xs mb-5" style={{ color: c.inkSoft }}>* sangat disarankan. Pengaturan user MCR hanya dapat dilakukan oleh admin dan sysadmin — akses ini seharusnya telah tercantum dalam BAST dari pejabat sebelumnya. Apabila belum diketahui, agar segera menghubungi Bank Cabang atau Grup Rekening.</p>
 
         <button onClick={() => setShowCMSInfo(!showCMSInfo)} className="text-xs font-semibold flex items-center gap-1.5" style={{ ...fontMono, color: c.maroon }}>
           {showCMSInfo ? "▾" : "▸"} Kenapa sangat disarankan?
@@ -1354,7 +1378,7 @@ function PelaporanExtra() {
       <div className="p-5" style={{ background: c.paperDim, border: `1px solid ${c.line}` }}>
         <p className="text-sm" style={{ color: c.ink }}>
           Akun Dashboard dikirim bank ke email KPA dan Bendahara — seharusnya diserah-terimakan dari pejabat
-          lama ke pejabat baru lewat BAST. BPG dan BPP memakai akun Dashboard yang sama; BPG VAT punya akun
+          lama ke pejabat baru melalui BAST. BPG dan BPP menggunakan akun Dashboard yang sama; BPG VAT punya akun
           terpisah. Jika kehilangan akses, segera hubungi bank di Grup Rekening dan/atau PIC Rekening Kantor
           Pusat DJP.
         </p>
@@ -1367,7 +1391,7 @@ const faseOperasionalVirtual = [
   {
     no: "01",
     title: "Pembukaan Rekening Satker",
-    summary: "Diajukan lewat Eselon I (Bagian Keuangan Pusat), bukan langsung ke KPPN.",
+    summary: "Diajukan melalui Eselon I (Bagian Keuangan Pusat), bukan langsung ke KPPN.",
     points: [
       <>KPA mengajukan permohonan persetujuan dan pembukaan Rekening Satker (BPG/BPP) kepada Eselon I — di DJP berarti ke Bagian Keuangan Kantor Pusat. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQA1qpGdiWiTRJhrkcZ7jmvfAQm7It61EGzpFD_6baFyMe8?e=Y5un6x" tone="dark">Buka format surat permohonan</InlineDocLink></>,
       "Eselon I meneruskan permohonan tersebut ke Kuasa BUN di Daerah paling lambat 5 hari kerja sejak diterima dari satker.",
@@ -1379,12 +1403,12 @@ const faseOperasionalVirtual = [
   {
     no: "02",
     title: "Operasional Harian",
-    summary: "Rekening Satker dioperasikan oleh bendahara — kredit, debit lewat CMS/kartu debit, transaksi tunai terbatas.",
+    summary: "Rekening Satker dioperasikan oleh bendahara — kredit, debit melalui CMS/kartu debit, transaksi tunai terbatas.",
     points: [
       "Rekening Pengeluaran (BPG) dioperasikan oleh bendahara pengeluaran; Rekening Pengeluaran Pembantu (BPP) oleh bendahara pengeluaran pembantu.",
       "Pengkreditan Rekening Satker otomatis menambah saldo Rekening Satker sekaligus Rekening Induk.",
-      "Pendebitan non-tunai dilakukan lewat CMS atau kartu debit. Transaksi diusahakan non tunai — tunai hanya untuk kondisi tertentu: gangguan sistem perbankan, pihak ketiga tidak menerima non tunai, atau keadaan kahar (bencana, epidemik, kerusuhan).",
-      "Seluruh pengambilan tunai — baik lewat ATM maupun teller — wajib pakai Kartu Debit DAN Surat Perintah Pendebitan Rekening (SPPR). Format SPPR ada di Lampiran PMK-183/PMK.05/2019.",
+      "Pendebitan non-tunai dilakukan melalui CMS atau kartu debit. Transaksi diusahakan non tunai — tunai hanya untuk kondisi tertentu: gangguan sistem perbankan, pihak ketiga tidak menerima non tunai, atau keadaan kahar (bencana, epidemik, kerusuhan).",
+      "Seluruh pengambilan tunai — baik melalui ATM maupun teller — wajib menggunakan Kartu Debit DAN Surat Perintah Pendebitan Rekening (SPPR). Format SPPR ada di Lampiran PMK-183/PMK.05/2019.",
     ],
     extra: <OperasionalHarianExtra />,
   },
@@ -1401,9 +1425,9 @@ const faseOperasionalVirtual = [
   {
     no: "04",
     title: "Pelaporan",
-    summary: "Otomatis lewat Dashboard — tidak perlu laporan manual seperti RPL.",
+    summary: "Otomatis melalui Dashboard — tidak perlu laporan manual seperti RPL.",
     points: [
-      "Pelaporan saldo Rekening Pengeluaran dihasilkan secara elektronik lewat Dashboard yang diberikan bank.",
+      "Pelaporan saldo Rekening Pengeluaran dihasilkan secara elektronik melalui Dashboard yang diberikan bank.",
       "Berbeda dengan RPL, satker tidak perlu menyusun dan mengirim laporan saldo bulanan secara manual ke KPPN — cukup pastikan akses Dashboard aktif dan dipantau rutin.",
     ],
     extra: <PelaporanExtra />,
@@ -1427,7 +1451,7 @@ function OperasionalVirtualContent({ onBack, onGoToFormat }) {
       </h1>
       <p className="text-sm mb-10 max-w-2xl" style={{ color: c.inkSoft }}>
         Empat fase siklus hidup Rekening Satker (BPG/BPP), dari sudut pandang satker sebagai pengguna rekening.
-        Klik tiap fase untuk lihat detailnya.
+        Pilih setiap fase untuk menampilkan uraian lengkap.
       </p>
 
       <div className="flex flex-col">
@@ -1543,7 +1567,7 @@ const jenisPerubahanVirtual = [
             <ol className="flex flex-col gap-3">
               {[
                 <>Satker wajib melakukan pemberitahuan ke Bank Padanan Satker, mengikuti dokumen-dokumen yang telah ditentukan bank (lihat rincian per bank di bawah). <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQBXWDXnDcMZQ4UA2TfJIW1fATPOCPQN1WiP2Zu_YzMLkfg?e=fiVliU" tone="dark">Buka format surat perubahan data</InlineDocLink></>,
-                "Satker wajib memastikan login akun perbankan dan pelaksanaan transaksi sudah bisa dijalankan.",
+                "Satker wajib memastikan login akun perbankan dan pelaksanaan transaksi telah dapat dijalankan.",
                 "Satker wajib berkonsultasi dengan cabang Bank Padanan apabila terdapat kendala akses/transaksi.",
               ].map((t, i) => (
                 <li key={i} className="text-sm flex gap-3" style={{ color: c.inkSoft }}>
@@ -1557,7 +1581,7 @@ const jenisPerubahanVirtual = [
 
         {/* Onboarding Bendahara baru */}
         <div>
-          <p className="text-sm font-semibold mb-4">Things to Do untuk Bendahara Baru di Satker</p>
+          <p className="text-sm font-semibold mb-4">Langkah yang Perlu Dilakukan Bendahara Baru di Satker</p>
           <div className="grid grid-cols-1 sm:grid-cols-5 gap-3">
             {["Pahami isi BAST", "Masuk ke grup Rekening DJP", "Cek akun perbankan", "Perkenalan ke Bank Cabang", "Ubah data perbankan"].map((t, i) => (
               <div key={i} className="p-4 text-center" style={{ border: `1px dashed ${c.line}` }}>
@@ -1608,7 +1632,7 @@ function PerubahanVirtualContent({ onBack, onOpenMutasiDetail, onGoToFormat }) {
         Perubahan Rekening
       </h1>
       <p className="text-sm mb-10 max-w-2xl" style={{ color: c.inkSoft }}>
-        Dua jenis perubahan yang paling sering dihadapi satker. Klik tiap jenis untuk lihat langkah-langkahnya.
+        Dua jenis perubahan yang paling sering dihadapi satker. Pilih setiap jenis untuk menampilkan langkah-langkahnya.
       </p>
 
       <div className="flex flex-col">
@@ -1628,7 +1652,7 @@ function PerubahanVirtualContent({ onBack, onOpenMutasiDetail, onGoToFormat }) {
         <div>
           <p className="text-sm" style={{ color: c.ink }}>
             Satker juga dapat mengajukan <strong>Permohonan Penutupan Rekening Satker</strong> secara mandiri
-            apabila rekening sudah tidak digunakan sesuai tujuan penggunaannya (di luar konteks pindah bank). <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQCudtdNaeKhRqwKMyNzC6J1AUdSpUK7d0ZT4RT-ljOTdzQ?e=RiKCvI" tone="dark">Buka format surat</InlineDocLink>
+            apabila rekening telah tidak digunakan sesuai tujuan penggunaannya (di luar konteks pindah bank). <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQCudtdNaeKhRqwKMyNzC6J1AUdSpUK7d0ZT4RT-ljOTdzQ?e=RiKCvI" tone="dark">Buka format surat</InlineDocLink>
           </p>
         </div>
       </div>
@@ -1685,8 +1709,7 @@ function FormatDokumenVirtualContent({ onBack }) {
         Format Dokumen
       </h1>
       <p className="text-sm mb-12 max-w-2xl" style={{ color: c.inkSoft }}>
-        Format surat untuk pengelolaan Rekening Satker (BPG/BPP), tersedia di SharePoint Kemenkeu — klik untuk
-        membuka, tinggal isi data satker dan kirim.
+        Format surat untuk pengelolaan Rekening Satker (BPG/BPP), tersedia di SharePoint Kemenkeu — dapat dibuka melalui tautan yang disediakan, kemudian dilengkapi data satker dan disampaikan sesuai ketentuan.
       </p>
 
       <div className="flex flex-col gap-14">
@@ -1712,7 +1735,7 @@ const jenisKKP = [
   {
     kode: "KKP-BO",
     nama: "KKP Belanja Operasional",
-    ket: "Dipegang Pejabat Pengadaan/pelaksana. Untuk belanja barang operasional (keperluan kantor, bahan makanan, dsb.) dan belanja modal. Maksimal Rp50 juta per rekanan, bisa naik sampai Rp200 juta khusus transaksi produk dalam negeri UMK lewat e-Katalog atau DIGIPay.",
+    ket: "Dipegang Pejabat Pengadaan/pelaksana. Untuk belanja barang operasional (keperluan kantor, bahan makanan, dsb.) dan belanja modal. Maksimal Rp50 juta per rekanan, bisa naik sampai Rp200 juta khusus transaksi produk dalam negeri UMK melalui e-Katalog atau DIGIPay.",
   },
   {
     kode: "KKP-PD",
@@ -1782,8 +1805,8 @@ function RegulasiKKPContent({ onBack }) {
         </p>
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Sebagai satker, yang perlu diketahui: sebagian Uang Persediaan (UP) satker dialokasikan dalam bentuk{" "}
-          <strong style={{ color: c.ink }}>UP KKP</strong> — dipakai lewat kartu, bukan tunai. UP KKP hanya bisa
-          dipakai untuk pembayaran kepada 1 (satu) penerima/rekanan, dengan batas nilai sesuai jenis kartunya.
+          <strong style={{ color: c.ink }}>UP KKP</strong> — digunakan melalui kartu, bukan tunai. UP KKP hanya bisa
+          digunakan untuk pembayaran kepada 1 (satu) penerima/rekanan, dengan batas nilai sesuai jenis kartunya.
         </p>
       </section>
 
@@ -1888,6 +1911,47 @@ function RegulasiKKPContent({ onBack }) {
         </div>
       </section>
 
+      {/* Perjanjian dengan pemegang kartu */}
+      <section className="mb-14">
+        <h2 className="text-xl font-semibold mb-2" style={fontDisplay}>Perjanjian Juga Ditandatangani dengan Pemegang Kartu</h2>
+        <p className="text-sm mb-6" style={{ color: c.inkSoft }}>
+          Selain PKS (satker–bank) dan SK (KPA–internal) di atas, ada satu perjanjian lagi yang kerap terlewat:{" "}
+          <strong style={{ color: c.ink }}>Surat Perjanjian Penggunaan KKP</strong> antara KPA dengan tiap
+          pemegang kartu. Ini bukan dokumen opsional — menandatanganinya adalah kewajiban resmi Pemegang KKP
+          per PMK-196/PMK.05/2018.
+        </p>
+        <div className="flex gap-4 p-5 mb-6" style={{ background: c.paperDim, border: `1px solid ${c.maroon}` }}>
+          <span className="text-base leading-none flex-shrink-0" style={{ color: c.maroon }}>ℹ</span>
+          <p className="text-sm" style={{ color: c.ink }}>
+            Ditandatangani <strong>bersamaan dengan BAST</strong>, tepat pada saat kartu diserahkan ke pemegang
+            — bukan dokumen terpisah yang bisa menyusul belakangan.
+          </p>
+        </div>
+        <p className="text-sm mb-4" style={{ color: c.inkSoft }}>
+          Per PMK-196/PMK.05/2018, isinya minimal harus memuat:
+        </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+          {[
+            "Definisi",
+            "Maksud dan tujuan",
+            "Ruang lingkup perjanjian",
+            "Penerbitan dan penerimaan kartu",
+            "Penggunaan Kartu Kredit Pemerintah",
+            "Hak dan kewajiban para pihak",
+            "PIN",
+            "Limit penggunaan kartu",
+            "Penghentian perjanjian",
+            "Sanksi",
+            "Penyelesaian perselisihan",
+          ].map((t, i) => (
+            <div key={i} className="text-sm flex gap-2 p-3" style={{ border: `1px solid ${c.line}`, color: c.inkSoft }}>
+              <span style={{ color: c.maroon, flexShrink: 0 }}>{i + 1}.</span>
+              <span>{t}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* Kewenangan satker */}
       <section>
         <h2 className="text-xl font-semibold mb-4" style={fontDisplay}>Siapa di Satker yang Berwenang</h2>
@@ -1916,7 +1980,7 @@ function RegulasiKKPContent({ onBack }) {
           </div>
         </div>
         <p className="text-xs mt-4" style={{ color: c.inkSoft }}>
-          Admin KKP sebaiknya tidak merangkap sebagai pemegang kartu — PMK KKP tidak melarangnya, tapi rangkap
+          Admin KKP sebaiknya tidak merangkap sebagai pemegang kartu — PMK KKP tidak melarangnya, namun rangkap
           jabatan ini mengurangi pemisahan tugas.
         </p>
       </section>
@@ -1942,33 +2006,33 @@ const faseOperasionalKKP = [
   {
     no: "02",
     title: "Pengajuan & Penerbitan Kartu",
-    summary: "Mengajukan kartu ke bank penerbit berdasarkan SK yang sudah ditetapkan.",
+    summary: "Mengajukan kartu ke bank penerbit berdasarkan SK yang telah ditetapkan.",
     points: [
       <><strong style={{ color: c.ink }}>KPA mengajukan permohonan penerbitan KKP ke bank penerbit</strong> untuk tiap pemegang yang tercantum pada SK, disertai dokumen pendukung. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQC_BXcsqniRSJrkp4DF8wDAAQC4U5G2sQ9tBtUbA9NwJSI?e=rfYRDH" tone="dark">Buka format surat permohonan</InlineDocLink></>,
       "Bank penerbit memverifikasi permohonan paling lambat 6 hari kerja setelah surat permohonan diterima.",
       "Pemegang KKP-BO ditetapkan dari pejabat pengadaan, pejabat struktural, pelaksana, atau pegawai lain yang bertugas dalam pengadaan barang/jasa; pemegang KKP-PD dari pejabat/pegawai yang menjalankan perjalanan dinas.",
-      "Setelah kartu terbit, Admin KKP mencatat nomor kartunya lalu menyerahkannya kepada pemegang.",
+      <>Setelah kartu terbit, Admin KKP mencatat nomor kartunya lalu menyerahkannya kepada pemegang — <strong style={{ color: c.ink }}>bersamaan dengan penandatanganan BAST dan Surat Perjanjian Penggunaan KKP</strong> oleh KPA dan pemegang kartu. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQATXP00XcMiQp4H_trU7dXFAXivMWsCJhfuX-wf841CDAQ?e=nbMGKx" tone="dark">Buka format BAST</InlineDocLink> · <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQD4gVX71fIhS4klshC6OHvqAQnT61X8sSg9dJRUpIB1a3k?e=FrdoOo" tone="dark">Surat Perjanjian (BO)</InlineDocLink> · <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQClgXAhnam7SpDTL-FPqdF3AaiHecwwc4gjaKX7uG4BLVE?e=Ysi2bq" tone="dark">Surat Perjanjian (PD)</InlineDocLink></>,
       "Maksimal 2 kartu aktif per pemegang — 1 KKP-BO dan 1 KKP-PD.",
     ],
   },
   {
     no: "03",
     title: "Transaksi & Pembayaran",
-    summary: "Cara bertransaksi lewat EDC/e-Katalog/DIGIPay, lalu pengujian dan pengesahan tagihan.",
+    summary: "Cara bertransaksi melalui EDC/e-Katalog/DIGIPay, lalu pengujian dan pengesahan tagihan.",
     points: [
-      "Pemegang KKP melakukan transaksi pada penyedia yang menerima pembayaran KKP lewat mesin EDC, e-Katalog, atau DIGIPay.",
+      "Pemegang KKP melakukan transaksi pada penyedia yang menerima pembayaran KKP melalui mesin EDC, e-Katalog, atau DIGIPay.",
       "PPK menguji kesesuaian spesifikasi teknis dan volume barang/jasa terhadap kontrak/perjanjian dan bukti serah terima.",
       "Berdasarkan hasil pengujian, PPK mengesahkan Daftar Pembayaran Tagihan (DPT) KKP atas bukti-bukti pengeluaran yang memenuhi ketentuan.",
       "PPK atas nama KPA menerbitkan Surat Perintah Bayar (SPBy) paling lambat 2 hari kerja setelah DPT KKP ditetapkan.",
-      "Bukti pengeluaran yang tidak memenuhi ketentuan ditolak PPK lewat Surat Pemberitahuan Penolakan, disampaikan paling lambat 3 hari kerja setelah DPT dan dokumen lampirannya diterima.",
+      "Bukti pengeluaran yang tidak memenuhi ketentuan ditolak PPK melalui Surat Pemberitahuan Penolakan, disampaikan paling lambat 3 hari kerja setelah DPT dan dokumen lampirannya diterima.",
     ],
   },
   {
     no: "04",
     title: "Penggantian UP KKP (GUP)",
-    summary: "Mengajukan penggantian UP yang sudah terpakai lewat SPP-GUP KKP/SPM-GUP KKP.",
+    summary: "Mengajukan penggantian UP yang telah digunakan melalui SPP-GUP KKP/SPM-GUP KKP.",
     points: [
-      "Bendahara mengajukan SPP-GUP KKP/SPM-GUP KKP berdasarkan DPT yang sudah disahkan PPK.",
+      "Bendahara mengajukan SPP-GUP KKP/SPM-GUP KKP berdasarkan DPT yang telah disahkan PPK.",
       <>Pengajuan SPP-GUP KKP/SPM-GUP KKP <strong style={{ color: c.ink }}>dilakukan terpisah</strong> dari pengajuan SPP/SPM pelaksanaan APBN lainnya.</>,
       "Pastikan seluruh kolom pada DPT terisi lengkap dan sesuai ketentuan — termasuk nama pemegang KKP dan nomor KKP — untuk menghindari koreksi dari KPPN.",
     ],
@@ -1984,7 +2048,7 @@ const faseOperasionalKKP = [
       "Satker perlu siap saat dilakukan rekonsiliasi data KKP secara berkala — pastikan data pemegang kartu, nomor kartu, dan limit selalu sesuai catatan bank penerbit.",
     ],
     superHighlight:
-      "Kartu yang tidak segera ditarik saat pemegangnya mutasi, pensiun, meninggal dunia, atau cuti di luar tanggungan negara berisiko menjadi kartu dormant — tetap aktif tapi tidak lagi terpakai dan sulit dilacak. Segera proses perubahan SK dan penarikan kartu begitu kondisi ini terjadi (lihat menu Perubahan KKP).",
+      "Kartu yang tidak segera ditarik saat pemegangnya mutasi, pensiun, meninggal dunia, atau cuti di luar tanggungan negara berisiko menjadi kartu dormant — tetap aktif namun tidak lagi digunakan dan sulit ditelusuri. Segera proses perubahan SK dan penarikan kartu begitu kondisi ini terjadi (lihat menu Perubahan KKP).",
   },
 ];
 
@@ -2004,8 +2068,7 @@ function OperasionalKKPContent({ onBack, onGoToFormat }) {
         Operasional KKP
       </h1>
       <p className="text-sm mb-10 max-w-2xl" style={{ color: c.inkSoft }}>
-        Empat fase siklus penggunaan KKP, dari sudut pandang satker sebagai pengguna kartu. Klik tiap fase untuk
-        lihat detailnya.
+        Empat fase siklus penggunaan KKP, dari sudut pandang satker sebagai pengguna kartu. Pilih setiap fase untuk menampilkan uraian lengkap.
       </p>
 
       <div className="flex flex-col">
@@ -2023,13 +2086,13 @@ const jenisPerubahanKKP = [
     id: "mutasi",
     badge: "NON-PMK · INTERNAL",
     title: "Perubahan Pemegang Kartu",
-    summary: "Wajib lewat siklus SK dulu — kartu tidak bisa ditarik sebelum pemegang dihapus dari SK aktif.",
+    summary: "Wajib melalui siklus SK dulu — kartu tidak bisa ditarik sebelum pemegang dihapus dari SK aktif.",
     steps: [
       <>Admin KKP menyusun SK/KEP pembaruan — menghapus pemegang lama dan/atau menambahkan pemegang baru — lalu mengajukannya untuk ditandatangani KPA. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQA-Uli8vHvCTqydFy2bO1lvAbry7Uw8t-3N5feQwD7rIus?e=iPCBOA" tone="dark">Buka format SK Perubahan</InlineDocLink></>,
       "KPA meninjau dan menyetujui, lalu menandatangani SK baru tersebut sehingga berlaku aktif.",
-      <>Setelah pemegang lama tidak lagi tercantum pada SK yang berlaku, <strong style={{ color: c.ink }}>barulah</strong> Admin KKP dapat mengajukan penutupan kartu lama ke bank penerbit lewat Surat Permohonan Penutupan KKP — kartu tidak dapat ditutup selama pemegangnya masih tercantum pada SK aktif. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQCSnEPYDl1VQan7V0m7FDu6AYYRUdGTG3wTZ3XlM4Edr24?e=MwupbZ" tone="dark">Buka format Surat Penutupan</InlineDocLink></>,
-      <>Untuk pemegang baru, satker mengajukan kartu baru ke bank penerbit lewat Surat Permohonan Penerbitan KKP yang sama seperti pengajuan kartu pertama kali — tidak ada surat 'penggantian pemegang' yang terpisah. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQC_BXcsqniRSJrkp4DF8wDAAQC4U5G2sQ9tBtUbA9NwJSI?e=rfYRDH" tone="dark">Buka format Surat Penerbitan</InlineDocLink></>,
-      <>Sebagai praktik baik, dokumentasikan juga serah terima kartu fisik antar pemegang lewat Berita Acara Serah Terima (BAST) Kartu KKP. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQATXP00XcMiQp4H_trU7dXFAXivMWsCJhfuX-wf841CDAQ?e=nbMGKx" tone="dark">Buka format BAST</InlineDocLink></>,
+      <>Setelah pemegang lama tidak lagi tercantum pada SK yang berlaku, <strong style={{ color: c.ink }}>barulah</strong> Admin KKP dapat mengajukan penutupan kartu lama ke bank penerbit melalui Surat Permohonan Penutupan KKP — kartu tidak dapat ditutup selama pemegangnya masih tercantum pada SK aktif. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQCSnEPYDl1VQan7V0m7FDu6AYYRUdGTG3wTZ3XlM4Edr24?e=MwupbZ" tone="dark">Buka format Surat Penutupan</InlineDocLink></>,
+      <>Untuk pemegang baru, satker mengajukan kartu baru ke bank penerbit melalui Surat Permohonan Penerbitan KKP yang sama seperti pengajuan kartu pertama kali — tidak ada surat 'penggantian pemegang' yang terpisah. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQC_BXcsqniRSJrkp4DF8wDAAQC4U5G2sQ9tBtUbA9NwJSI?e=rfYRDH" tone="dark">Buka format Surat Penerbitan</InlineDocLink></>,
+      <>Sebagai praktik baik, dokumentasikan juga serah terima kartu fisik antar pemegang melalui Berita Acara Serah Terima (BAST) Kartu KKP. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQATXP00XcMiQp4H_trU7dXFAXivMWsCJhfuX-wf841CDAQ?e=nbMGKx" tone="dark">Buka format BAST</InlineDocLink></>,
     ],
     superHighlight:
       "Segera proses perubahan SK dan penarikan kartu begitu pemegang mutasi, pensiun, meninggal dunia, atau cuti di luar tanggungan negara — penundaan berisiko membuat kartu tetap aktif tanpa pemegang yang sah (dormant).",
@@ -2042,7 +2105,7 @@ const jenisPerubahanKKP = [
     steps: [
       <>Admin KKP menyusun SK/KEP pembaruan — menghapus Admin KKP lama dan/atau menambahkan Admin KKP baru — lalu mengajukannya untuk ditandatangani KPA. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQA-Uli8vHvCTqydFy2bO1lvAbry7Uw8t-3N5feQwD7rIus?e=iPCBOA" tone="dark">Buka format SK Perubahan</InlineDocLink></>,
       "KPA meninjau dan menandatangani SK baru tersebut sehingga berlaku aktif.",
-      "Satker memberitahukan pergantian Admin KKP ke bank penerbit sebagai kontak pengurus KKP satker — bisa lewat surat maupun cara informal, mengikuti prosedur masing-masing bank.",
+      "Satker memberitahukan pergantian Admin KKP ke bank penerbit sebagai kontak pengurus KKP satker — dapat dilakukan melalui surat maupun sarana komunikasi lain, mengikuti prosedur masing-masing bank.",
       "Admin KKP yang sah adalah yang tercantum pada SK terakhir yang berlaku — pastikan daftar ini selalu diperbarui setiap kali ada mutasi.",
     ],
     superHighlight:
@@ -2054,7 +2117,7 @@ const jenisPerubahanKKP = [
     title: "Perubahan Limit Kartu",
     summary: "Menaikkan batas transaksi KKP-BO, khusus untuk kebutuhan pengadaan produk dalam negeri UMK.",
     steps: [
-      "KPA mengajukan permohonan perubahan limit KKP-BO ke bank penerbit, disertai justifikasi kebutuhan — umumnya untuk transaksi lewat e-Katalog atau DIGIPay.",
+      "KPA mengajukan permohonan perubahan limit KKP-BO ke bank penerbit, disertai justifikasi kebutuhan — umumnya untuk transaksi melalui e-Katalog atau DIGIPay.",
       "Limit KKP-BO dapat dinaikkan dari batas umum Rp50 juta sampai maksimal Rp200 juta per rekanan, khusus untuk transaksi produk dalam negeri UMK.",
       "Bank penerbit mengonfirmasi limit baru setelah permohonan disetujui.",
     ],
@@ -2063,10 +2126,10 @@ const jenisPerubahanKKP = [
     id: "hilang",
     badge: "NON-PMK · INTERNAL",
     title: "Kartu Hilang atau Rusak",
-    summary: "Ditutup lewat Surat Permohonan Penutupan, lalu diajukan ulang lewat Surat Permohonan Penerbitan.",
+    summary: "Ditutup melalui Surat Permohonan Penutupan, lalu diajukan ulang melalui Surat Permohonan Penerbitan.",
     steps: [
       <>Satker segera mengajukan Surat Permohonan Penutupan KKP ke bank penerbit begitu kartu diketahui hilang atau rusak, dilampiri surat kehilangan untuk kartu yang hilang. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQCSnEPYDl1VQan7V0m7FDu6AYYRUdGTG3wTZ3XlM4Edr24?e=MwupbZ" tone="dark">Buka format Surat Penutupan</InlineDocLink></>,
-      <>Setelah kartu ditutup, Admin KKP mengajukan kartu pengganti ke bank penerbit lewat Surat Permohonan Penerbitan KKP yang sama seperti pengajuan kartu baru — karena pemegangnya tetap sama, proses ini tidak perlu melalui siklus perubahan SK. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQC_BXcsqniRSJrkp4DF8wDAAQC4U5G2sQ9tBtUbA9NwJSI?e=rfYRDH" tone="dark">Buka format Surat Penerbitan</InlineDocLink></>,
+      <>Setelah kartu ditutup, Admin KKP mengajukan kartu pengganti ke bank penerbit melalui Surat Permohonan Penerbitan KKP yang sama seperti pengajuan kartu baru — karena pemegangnya tetap sama, proses ini tidak perlu melalui siklus perubahan SK. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQC_BXcsqniRSJrkp4DF8wDAAQC4U5G2sQ9tBtUbA9NwJSI?e=rfYRDH" tone="dark">Buka format Surat Penerbitan</InlineDocLink></>,
       "Catat kejadian ini pada dokumentasi internal satker sebagai kelengkapan arsip.",
     ],
   },
@@ -2088,7 +2151,7 @@ function PerubahanKKPContent({ onBack, onOpenMutasiDetail, onGoToFormat }) {
         Perubahan KKP
       </h1>
       <p className="text-sm mb-8 max-w-2xl" style={{ color: c.inkSoft }}>
-        Empat jenis perubahan yang paling sering dihadapi satker. Klik tiap jenis untuk lihat langkah-langkahnya.
+        Empat jenis perubahan yang paling sering dihadapi satker. Pilih setiap jenis untuk menampilkan langkah-langkahnya.
       </p>
 
       <div className="flex gap-4 p-5 mb-10" style={{ background: c.paperDim, border: `1px solid ${c.maroon}` }}>
@@ -2120,8 +2183,8 @@ const kategoriDokumenKKP = [
     id: "dasar",
     label: "Dasar Legal (5 Dokumen Wajib per ND-1951/PJ.01/2026)",
     docs: [
-      { nama: "SK KPA tentang Daftar Pemegang KKP & Daftar Administrator KKP", badge: "NON-PMK", caption: "Khusus penunjukan pertama kali. Untuk perubahan berikutnya, pakai format SK Perubahan di kategori Perubahan & Penutupan.", href: "https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQAxHSJDPPp6Q4ej-EbygI83AYuQPIYdDrK_Zb6V_MGTw0w?e=nrJXn7" },
-      { nama: "Perjanjian Kerja Sama (PKS) Satker dengan Bank Penerbit KKP", badge: "PMK-196", note: "Format PKS tidak diunggah di sini — DJPb yang menetapkan formatnya dan menyalurkannya ke Bank Pusat. Satker tinggal minta ke Bank Padanan, lalu KPA tanda tangan bersama bank." },
+      { nama: "SK KPA tentang Daftar Pemegang KKP & Daftar Administrator KKP", badge: "NON-PMK", caption: "Khusus penunjukan pertama kali. Untuk perubahan berikutnya, menggunakan format SK Perubahan di kategori Perubahan & Penutupan.", href: "https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQAxHSJDPPp6Q4ej-EbygI83AYuQPIYdDrK_Zb6V_MGTw0w?e=nrJXn7" },
+      { nama: "Perjanjian Kerja Sama (PKS) Satker dengan Bank Penerbit KKP", badge: "PMK-196", note: "Format PKS tidak diunggah di sini — DJPb yang menetapkan formatnya dan menyalurkannya ke Bank Pusat. Satker mengajukan permintaan format tersebut kepada Bank Padanan, kemudian KPA menandatanganinya bersama bank." },
       { nama: "Surat Permohonan Penerbitan KKP kepada Bank Penerbit (dilampiri Surat Referensi)", badge: "PMK-196", href: "https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQC_BXcsqniRSJrkp4DF8wDAAQC4U5G2sQ9tBtUbA9NwJSI?e=rfYRDH" },
       { nama: "Surat Perjanjian Penggunaan KKP antara KPA dengan Pemegang KKP", badge: "PMK-196", hrefs: [
         { label: "KKP Belanja Operasional", url: "https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQD4gVX71fIhS4klshC6OHvqAQnT61X8sSg9dJRUpIB1a3k?e=FrdoOo" },
@@ -2194,7 +2257,7 @@ function HomeContent({ onNavigate, onNavigateIsu }) {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-px mb-6" style={{ background: c.line, border: `1px solid ${c.line}` }}>
         <div className="p-8 sm:p-10" style={{ background: c.navy }}>
           <h2 className="text-2xl sm:text-3xl font-semibold mb-8" style={{ ...fontDisplay, color: c.paper, letterSpacing: "-0.01em" }}>
-            Selalu jaga kerahasiaan data rekeningmu!
+            Kerahasiaan data rekening satker wajib dijaga.
           </h2>
 
           <p className="text-xs uppercase mb-4" style={{ ...fontMono, color: c.gold, letterSpacing: "0.12em" }}>
@@ -2224,8 +2287,7 @@ function HomeContent({ onNavigate, onNavigateIsu }) {
             ))}
           </div>
           <p className="text-sm" style={{ color: "#C7CCD9" }}>
-            Agar selalu <em>up to date</em> dan bisa <em>sharing knowledge</em>, ayo gabung grup rekening! Klik
-            salah satu di atas untuk buka daftar link undangan (perlu login akun Kemenkeu).
+            Untuk memperoleh informasi terkini dan berbagi pengetahuan, satker diimbau bergabung dalam grup rekening. Daftar tautan undangan dapat diakses melalui salah satu pilihan di atas (memerlukan akun Kemenkeu).
           </p>
         </div>
 
@@ -2236,7 +2298,7 @@ function HomeContent({ onNavigate, onNavigateIsu }) {
                 Tindakan Urgent Terkini
               </p>
               <h3 className="text-lg sm:text-xl font-semibold mb-3" style={{ ...fontDisplay, color: c.paper, letterSpacing: "-0.01em" }}>
-                [URGENT] Prosedur Serah Terima Rekening &amp; KKP sehubungan Mutasi
+                [PENTING] Prosedur Serah Terima Rekening &amp; KKP sehubungan Mutasi
               </h3>
               <p className="text-sm mb-6" style={{ color: "#F0D9D9" }}>
                 Sehubungan dengan mutasi KPA, Bendahara, Admin KKP, dan/atau pemegang kartu KKP di satker.
@@ -2287,7 +2349,7 @@ function BantuanContent() {
       </h1>
       <p className="text-sm mb-10 max-w-2xl" style={{ color: c.inkSoft }}>
         Untuk pertanyaan yang tidak terjawab di halaman lain, satker dapat menghubungi Bagian Keuangan —
-        Subbagian Perbendaharaan, atau memakai jalur koordinasi berikut.
+        Subbagian Perbendaharaan, atau menggunakan jalur koordinasi berikut.
       </p>
 
       <section className="mb-12">
@@ -2297,8 +2359,7 @@ function BantuanContent() {
         </div>
         <p className="text-sm mb-5" style={{ color: c.inkSoft }}>
           Setiap bank mitra punya satu grup WhatsApp koordinasi berisi Tim KPDJP, Tim Perbankan, dan seluruh
-          Bendahara satker. Klik salah satu di bawah untuk buka daftar link undangan di SharePoint — perlu
-          login akun Kemenkeu.
+          Bendahara satker. Daftar tautan undangan dapat diakses melalui salah satu pilihan di bawah pada SharePoint (memerlukan akun Kemenkeu).
         </p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {waGrupRekening.map((g, i) => (
@@ -2329,7 +2390,7 @@ function BantuanContent() {
         <h2 className="text-xl font-semibold mb-4" style={fontDisplay}>Koordinasi dengan Bank Cabang Padanan</h2>
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Senantiasa berkoordinasi dengan cabang padanan agar terbina hubungan baik antara satker dan bank.
-          Jangan sungkan untuk bertanya atau sharing kendala — <em>sharing is caring</em>.
+          Satker dipersilakan menyampaikan pertanyaan maupun kendala yang dihadapi.
         </p>
       </section>
 
@@ -2370,7 +2431,7 @@ function FAQContent({ onOpenMutasiDetail, onOpenIsuPenagihan }) {
       </h1>
       <p className="text-sm mb-8 max-w-2xl" style={{ color: c.inkSoft }}>
         Pertanyaan seputar Rekening Giro, Rekening Virtual, dan Kartu Kredit Pemerintah (KKP). Pilih tab sesuai
-        topik, lalu klik pertanyaan untuk lihat jawabannya.
+        topik, kemudian pilih pertanyaan untuk menampilkan jawabannya.
       </p>
 
       <TabSwitch
@@ -2398,7 +2459,7 @@ function FAQContent({ onOpenMutasiDetail, onOpenIsuPenagihan }) {
 function FAQGiroList({ onOpenMutasiDetail, onOpenIsuPenagihan }) {
   return (
     <div className="flex flex-col">
-      <FAQItem question="Kenapa Bendahara Pasti Punya Rekening?" defaultOpen>
+      <FAQItem question="Dasar Kepemilikan Rekening oleh Bendahara" defaultOpen>
         <p className="text-sm mb-6" style={{ color: c.inkSoft }}>
           Salah satu <em>jobdesk</em> yang melekat ke Bendahara adalah pengelolaan rekening — termasuk Rekening
           Lainnya (RPL) yang dibahas di tab ini.
@@ -2407,7 +2468,7 @@ function FAQGiroList({ onOpenMutasiDetail, onOpenIsuPenagihan }) {
           {[
             { no: "1", title: "Uang Masuk", desc: "Hampir setiap hari ada uang masuk dari KPPN dalam rangka pelaksanaan pembayaran dan operasional satker." },
             { no: "2", title: "Ditampung", desc: "Uang masuk perlu rekening satker yang kemudian dikelola oleh Bendahara." },
-            { no: "3", title: "Disalurkan", desc: "Penyaluran uang atau pembayaran bisa lewat tarik tunai atau mekanisme transfer." },
+            { no: "3", title: "Disalurkan", desc: "Penyaluran uang atau pembayaran bisa melalui tarik tunai atau mekanisme transfer." },
           ].map((s) => (
             <div key={s.no} className="p-6" style={{ background: c.paper }}>
               <span
@@ -2423,11 +2484,11 @@ function FAQGiroList({ onOpenMutasiDetail, onOpenIsuPenagihan }) {
         </div>
       </FAQItem>
 
-      <FAQItem question="Apa itu Rekening Lainnya (RPL)?">
+      <FAQItem question="Pengertian Rekening Lainnya (RPL)">
         <p className="text-sm mb-6" style={{ color: c.inkSoft }}>
           RPL adalah kelompok rekening satker di luar Rekening Penerimaan dan Rekening Pengeluaran, diatur
           PMK-182/PMK.05/2017. Ada 9 jenis RPL — <strong style={{ color: c.ink }}>RPL PS dan PDT paling sering
-          dipakai di DJP</strong>, sisanya dibuka sesuai kebutuhan.
+          digunakan di DJP</strong>, sisanya dibuka sesuai kebutuhan.
         </p>
         <div className="flex flex-col" style={{ border: `1px solid ${c.line}` }}>
           {jenisRPL.slice(0, 4).map((j, i) => (
@@ -2456,7 +2517,7 @@ function FAQGiroList({ onOpenMutasiDetail, onOpenIsuPenagihan }) {
         </p>
       </FAQItem>
 
-      <FAQItem question="Siapa yang Berwenang Mengelola Rekening RPL?">
+      <FAQItem question="Pihak yang Berwenang Mengelola Rekening RPL">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-px" style={{ background: c.line, border: `1px solid ${c.line}` }}>
           <div className="p-5" style={{ background: c.paper }}>
             <p className="text-sm font-semibold mb-2">KPA (Kuasa Pengguna Anggaran)</p>
@@ -2469,9 +2530,9 @@ function FAQGiroList({ onOpenMutasiDetail, onOpenIsuPenagihan }) {
         </div>
       </FAQItem>
 
-      <FAQItem question="RPL PS untuk Penagihan, Boleh Dibuka?">
+      <FAQItem question="Ketentuan Pembukaan RPL PS untuk Penagihan">
         <p className="text-sm mb-5" style={{ color: c.inkSoft }}>
-          Boleh — satker (khusus Unit Vertikal: Kanwil & KPP) sudah bisa membuka dan mengoperasikan RPL PS
+          Diperbolehkan — satker (khusus Unit Vertikal: Kanwil dan KPP) dapat membuka dan mengoperasikan RPL PS
           untuk Penagihan sekarang juga, sesuai prosedur umum PMK-182/PMK.05/2017.
         </p>
         {onOpenIsuPenagihan && (
@@ -2480,21 +2541,21 @@ function FAQGiroList({ onOpenMutasiDetail, onOpenIsuPenagihan }) {
             className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold"
             style={{ background: c.maroon, color: c.paper }}
           >
-            📖 Lihat Panduan Lengkap →
+            Lihat Panduan Lengkap
           </button>
         )}
       </FAQItem>
 
-      <FAQItem question="Kapan Rekening RPL Wajib Disetor/Dikosongkan?">
+      <FAQItem question="Ketentuan Penyetoran dan Penihilan Rekening RPL">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           <strong style={{ color: c.ink }}>RPL PS Penagihan:</strong> seluruh hasil penjualan wajib disetor
-          paling lambat 31 Desember. Kalau tidak bisa, Kasi P3 buat Berita Acara, lapor ke Kepala Kantor &
+          paling lambat 31 Desember. Apabila tidak bisa, Kasi P3 buat Berita Acara, lapor ke Kepala Kantor &
           Kasubbag Umum dan Kepatuhan Internal. Untuk RPL lain, ikuti tujuan penggunaan masing-masing sesuai
           dasar persetujuan pembukaannya.
         </p>
       </FAQItem>
 
-      <FAQItem question="Apa itu CMS?">
+      <FAQItem question="Pengertian Cash Management System (CMS)">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           <strong style={{ color: c.ink }}>CMS (Cash Management System)</strong> — tools/website bank untuk
           transaksi online seperti transfer dan bayar pajak. Sangat disarankan semua satker punya akses CMS
@@ -2502,10 +2563,9 @@ function FAQGiroList({ onOpenMutasiDetail, onOpenIsuPenagihan }) {
         </p>
       </FAQItem>
 
-      <FAQItem question="Ada Mutasi KPA/Bendahara, Harus Ngapain?">
+      <FAQItem question="Prosedur saat Terjadi Mutasi KPA/Bendahara">
         <p className="text-sm mb-5" style={{ color: c.inkSoft }}>
-          Singkatnya: pejabat lama wajib bikin BAST, pejabat baru lapor ke bank & pastikan aksesnya jalan.
-          Prosedur lengkap per bank (BRI/Mandiri/BNI/BSI) beda-beda.
+          Secara ringkas: pejabat lama wajib menyusun BAST, sedangkan pejabat baru menyampaikan pemberitahuan ke bank dan memastikan aksesnya berfungsi. Prosedur lengkap pada masing-masing bank (BRI/Mandiri/BNI/BSI) berbeda-beda.
         </p>
         {onOpenMutasiDetail && (
           <button
@@ -2513,35 +2573,35 @@ function FAQGiroList({ onOpenMutasiDetail, onOpenIsuPenagihan }) {
             className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold"
             style={{ background: c.maroon, color: c.paper }}
           >
-            📖 Lihat Panduan Lengkap →
+            Lihat Panduan Lengkap
           </button>
         )}
       </FAQItem>
 
-      <FAQItem question="Bisa Pindah Bank? Bagaimana Caranya?">
+      <FAQItem question="Prosedur Perubahan Bank Tempat Pembukaan Rekening">
         <p className="text-sm" style={{ color: c.ink }}>
-          Bisa. Untuk RPL, satker mengajukan permohonan perubahan bank tempat pembukaan rekening langsung ke{" "}
+          Dapat dilakukan. Untuk RPL, satker mengajukan permohonan perubahan bank tempat pembukaan rekening langsung ke{" "}
           <strong>KPPN mitra kerja</strong>, lalu memindahkan ke salah satu dari 4 bank mitra: Bank Mandiri, Bank
           BRI, Bank BNI, atau Bank BSI.
         </p>
       </FAQItem>
 
-      <FAQItem question="Permohonan RPL Ditolak KPPN, Harus Bagaimana?">
+      <FAQItem question="Tindak Lanjut atas Penolakan Permohonan RPL oleh KPPN">
         <p className="text-sm" style={{ color: c.inkSoft }}>
-          Konsultasikan ke KPPN mitra kerja untuk menanyakan dua hal: dokumen apa yang masih kurang lengkap,
+          Satker berkonsultasi kepada KPPN mitra kerja untuk menanyakan dua hal: dokumen yang masih belum lengkap,
           atau ketentuan mana dari PMK-182/PMK.05/2017 yang belum terpenuhi sehingga permohonan ditolak. Setelah
           itu, satker bisa melengkapi dan mengajukan ulang permohonan pembukaan.
         </p>
       </FAQItem>
 
-      <FAQItem question="Bisa Punya Lebih dari 1 RPL Jenis yang Sama?">
+      <FAQItem question="Ketentuan Kepemilikan Lebih dari Satu RPL Sejenis">
         <p className="text-sm mb-4" style={{ color: c.inkSoft }}>
-          Bisa. Satu satker boleh membuka lebih dari satu RPL dengan jenis yang sama, selama tujuan
-          penggunaannya berbeda. Contoh yang sudah berjalan di DJP:
+          Diperbolehkan. Satu satker dapat membuka lebih dari satu RPL dengan jenis yang sama, selama tujuan
+          penggunaannya berbeda. Contoh yang telah berjalan di DJP:
         </p>
         <ul className="flex flex-col gap-2">
           {[
-            "RPL PS Tunjangan Kinerja dan RPL PS Penagihan — dua-duanya RPL PS, tapi untuk keperluan yang berbeda.",
+            "RPL PS Tunjangan Kinerja dan RPL PS Penagihan — keduanya merupakan RPL PS, namun dengan tujuan penggunaan yang berbeda.",
             "RPL Penyidikan — dibuka khusus di tingkat Kanwil.",
             "Jenis RPL lain juga bisa dibuka sesuai kebutuhan yang muncul ke depan, misalnya RPL Bantuan Global atau RPL PS Penampungan Efek.",
           ].map((t, i) => (
@@ -2553,15 +2613,15 @@ function FAQGiroList({ onOpenMutasiDetail, onOpenIsuPenagihan }) {
         </ul>
       </FAQItem>
 
-      <FAQItem question="RPL yang Sudah Tidak Dipakai, Perlu Ditutup?">
+      <FAQItem question="Ketentuan Penutupan RPL yang Tidak Digunakan">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Bank biasanya akan menonaktifkan otomatis RPL yang tidak ada transaksi selama <strong style={{ color: c.ink }}>6
-          bulan sampai 1 tahun</strong>. Kalau rekening itu ternyata masih mau dipakai lagi, satker cukup
+          bulan sampai 1 tahun</strong>. Apabila rekening tersebut masih akan digunakan kembali, satker cukup
           mengajukan permohonan ke bank untuk mengaktifkan kembali statusnya — tidak perlu membuka rekening baru.
         </p>
       </FAQItem>
 
-      <FAQItem question="Rekonsiliasi RPL ke KPPN, Berapa Sering?">
+      <FAQItem question="Frekuensi Rekonsiliasi RPL ke KPPN">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Umumnya <strong style={{ color: c.ink }}>setiap bulan</strong>, dituangkan dalam Berita Acara
           rekonsiliasi. Karena ketentuan teknis ini bisa berubah atau berbeda mekanismenya antar KPPN, tetap
@@ -2570,24 +2630,24 @@ function FAQGiroList({ onOpenMutasiDetail, onOpenIsuPenagihan }) {
         </p>
       </FAQItem>
 
-      <FAQItem question="KPA Berhalangan Sementara (Bukan Mutasi), Siapa yang Menggantikan?">
+      <FAQItem question="Penggantian KPA yang Berhalangan Sementara">
         <p className="text-sm" style={{ color: c.inkSoft }}>
-          Kalau KPA berhalangan sementara — misalnya cuti panjang — bukan mutasi permanen, penggantiannya lewat{" "}
+          Apabila KPA berhalangan sementara — misalnya cuti panjang — bukan mutasi permanen, penggantiannya melalui{" "}
           <strong style={{ color: c.ink }}>Pelaksana Harian (Plh) atau Pelaksana Tugas (Plt) KPA</strong>, bukan
           proses mutasi penuh. Satker tetap wajib memberitahukan ke bank perihal penunjukan ini, disertai surat
-          penunjukan Plh/Plt, dan mengubah data pemegang akun ke bank kalau memang diperlukan.
+          penunjukan Plh/Plt, dan mengubah data pemegang akun ke bank apabila memang diperlukan.
         </p>
       </FAQItem>
 
-      <FAQItem question="Apa Saja 9 Jenis RPL yang Ada?">
+      <FAQItem question="Jenis-Jenis Rekening Lainnya (RPL)">
         <p className="text-sm mb-4" style={{ color: c.inkSoft }}>
-          RPL PS dan PDT paling sering dipakai di DJP. 7 jenis lainnya dibuka sesuai kebutuhan spesifik:
+          RPL PS dan PDT paling sering digunakan di DJP. 7 jenis lainnya dibuka sesuai kebutuhan spesifik:
         </p>
         <ul className="flex flex-col gap-2">
           {[
             "BLU — untuk satker berstatus Badan Layanan Umum.",
             "PWK — khusus perwakilan RI di luar negeri.",
-            "DB — menyalurkan dana bantuan ke penerima lewat bank penyalur.",
+            "DB — menyalurkan dana bantuan ke penerima melalui bank penyalur.",
             "PDHL — pengelolaan hibah langsung dalam bentuk uang.",
             "PDH — menyalurkan dana dari Rekening Penampungan Dana Hibah Langsung.",
             "KS — menampung dana kerja sama dua pihak.",
@@ -2601,7 +2661,7 @@ function FAQGiroList({ onOpenMutasiDetail, onOpenIsuPenagihan }) {
         </ul>
       </FAQItem>
 
-      <FAQItem question="Berapa Lama Proses Persetujuan Pembukaan RPL di KPPN?">
+      <FAQItem question="Jangka Waktu Proses Persetujuan Pembukaan RPL di KPPN">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           KPPN menerbitkan persetujuan atau penolakan <strong style={{ color: c.ink }}>paling lambat 5 hari
           kerja</strong> sejak permohonan diterima. Surat persetujuan yang terbit berlaku selama{" "}
@@ -2611,57 +2671,57 @@ function FAQGiroList({ onOpenMutasiDetail, onOpenIsuPenagihan }) {
         </p>
       </FAQItem>
 
-      <FAQItem question="Kenapa Rekening RPL Wajib Didaftarkan ke SIKKA?">
+      <FAQItem question="Kewajiban Pendaftaran RPL pada SIKKA">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Karena itu kewajiban Bendahara — setiap RPL PS wajib didaftarkan dan/atau dimutakhirkan datanya di
-          Sistem Informasi Keuangan, Kepegawaian, dan Aktiva (SIKKA). Ini bukan opsional; kalau data di SIKKA
+          Sistem Informasi Keuangan, Kepegawaian, dan Aktiva (SIKKA). Ini bukan opsional; apabila data di SIKKA
           tidak sesuai dengan rekening yang sebenarnya, satker berisiko dianggap belum tertib administrasi saat
           pemeriksaan.
         </p>
       </FAQItem>
 
-      <FAQItem question="Apa itu Program TNP untuk Bunga/Jasa Giro?">
+      <FAQItem question="Program TNP untuk Penyetoran Bunga/Jasa Giro">
         <p className="text-sm" style={{ color: c.inkSoft }}>
-          TNP adalah program konsolidasi otomatis untuk penyetoran bunga/jasa giro rekening ke Kas Negara. Kalau
-          rekening sudah ikut TNP, penyetorannya otomatis terkonsolidasi — satker tidak perlu menyetor manual
-          tiap bulan. Kalau belum ikut, satker harus menyetorkan sendiri ke Kas Negara setiap akhir bulan.
+          TNP adalah program konsolidasi otomatis untuk penyetoran bunga/jasa giro rekening ke Kas Negara. Apabila
+          rekening telah terdaftar pada TNP, penyetorannya terkonsolidasi secara otomatis — satker tidak perlu menyetor secara manual
+          tiap bulan. Apabila belum ikut, satker harus menyetorkan sendiri ke Kas Negara setiap akhir bulan.
           Sangat dianjurkan mendaftarkan rekening ke program TNP untuk memudahkan pengelolaan.
         </p>
       </FAQItem>
 
-      <FAQItem question="Kapan Batas Waktu Lapor Saldo Bulanan ke KPPN?">
+      <FAQItem question="Batas Waktu Penyampaian Laporan Saldo Bulanan ke KPPN">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Paling lambat <strong style={{ color: c.ink }}>tanggal 10 bulan berikutnya</strong>, untuk seluruh
-          rekening yang dikelola satker. Kalau tanggal 10 jatuh pada hari libur, laporan disampaikan pada hari
+          rekening yang dikelola satker. Apabila tanggal 10 jatuh pada hari libur, laporan disampaikan pada hari
           kerja sebelumnya — bukan diundur ke hari kerja setelahnya.
         </p>
       </FAQItem>
 
-      <FAQItem question="Kapan Rekening RPL Dianggap Pasif dan Wajib Ditutup?">
+      <FAQItem question="Kriteria Rekening RPL Pasif dan Kewajiban Penutupannya">
         <p className="text-sm" style={{ color: c.inkSoft }}>
-          Rekening dikategorikan pasif kalau tidak ada transaksi debit maupun kredit selama{" "}
+          Rekening dikategorikan pasif apabila tidak ada transaksi debit maupun kredit selama{" "}
           <strong style={{ color: c.ink }}>1 tahun</strong> sejak transaksi terakhir. KPPN akan mengirim surat
           pemberitahuan rekening pasif <strong style={{ color: c.ink }}>6 bulan sebelum</strong> batas waktu
-          penutupan — jadi satker masih ada waktu untuk merespons sebelum ditutup paksa.
+          penutupan, sehingga satker masih memiliki waktu untuk menindaklanjuti sebelum dilakukan penutupan.
         </p>
       </FAQItem>
 
-      <FAQItem question="Bisa Ubah Nama Rekening Kalau Ada Perubahan Nomenklatur Satker?">
+      <FAQItem question="Perubahan Nama Rekening akibat Perubahan Nomenklatur Satker">
         <p className="text-sm" style={{ color: c.inkSoft }}>
-          Bisa. Satker mengajukan permohonan persetujuan perubahan nama Rekening ke KPPN mitra kerja, tanpa
+          Dapat dilakukan. Satker mengajukan permohonan persetujuan perubahan nama Rekening ke KPPN mitra kerja, tanpa
           mengubah tujuan penggunaan rekening. KPPN lalu menerbitkan Surat Perubahan Nama Rekening yang
           ditujukan ke bank, dan bank yang mengeksekusi perubahan nama sekaligus memberi tahu KPPN dan satker.
         </p>
       </FAQItem>
 
-      <FAQItem question="Bisa Ajukan Pindah Bank Secara Kolektif untuk Banyak Rekening?">
+      <FAQItem question="Ketentuan Pengajuan Perubahan Bank secara Kolektif">
         <p className="text-sm" style={{ color: c.inkSoft }}>
-          Tidak bisa. Perubahan bank tempat pembukaan rekening diajukan satu per satu, tidak bisa kolektif untuk
+          Tidak diperbolehkan. Perubahan bank tempat pembukaan rekening diajukan satu per satu, tidak dapat dilakukan secara kolektif untuk
           banyak rekening sekaligus — meskipun rekening-rekening itu dikelola satker yang sama.
         </p>
       </FAQItem>
 
-      <FAQItem question="Kenapa Nama Rekening RPL Punya Format Khusus?">
+      <FAQItem question="Dasar Penggunaan Format Khusus pada Nama Rekening RPL">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Supaya bisa langsung dikenali jenis dan asal-usulnya. Formatnya kira-kira: <strong style={{ color: c.ink }}>"RPL
           (kode KPPN) (kode jenis, mis. PS) (nama satker) untuk ..."</strong> — jadi siapa pun yang melihat nama
@@ -2670,29 +2730,27 @@ function FAQGiroList({ onOpenMutasiDetail, onOpenIsuPenagihan }) {
         </p>
       </FAQItem>
 
-      <FAQItem question="Siapa yang Bertanggung Jawab Membukukan Transaksi RPL?">
+      <FAQItem question="Penanggung Jawab Pembukuan Transaksi RPL">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Bendahara satker. Bendahara wajib membukukan dan mempertanggungjawabkan seluruh dana yang keluar-masuk
-          di rekening RPL yang dikelolanya — bukan cuma menyimpan bukti transaksi, tapi juga mencatatnya secara
-          tertib sebagai bagian dari laporan pertanggungjawaban.
+          di rekening RPL yang dikelolanya — tidak hanya menyimpan bukti transaksi, tetapi juga mencatatnya secara tertib sebagai bagian dari laporan pertanggungjawaban.
         </p>
       </FAQItem>
 
-      <FAQItem question="Bagaimana Seksi P3 dan Bendahara Berkoordinasi soal RPL PS Penagihan?">
+      <FAQItem question="Koordinasi Seksi P3 dan Bendahara dalam Pengelolaan RPL PS Penagihan">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Kolaborasi penggunaan rekening RPL PS Penagihan mengikuti ketentuan di masing-masing kantor. Praktik
           yang dianjurkan: pemberitahuan adanya pengkreditan (uang masuk) dan rencana pendebitan (uang keluar)
-          disampaikan lewat Nota Dinas oleh Seksi P3 — ini jadi dasar Bendahara melakukan transaksi, sekaligus
+          disampaikan melalui Nota Dinas oleh Seksi P3 — ini jadi dasar Bendahara melakukan transaksi, sekaligus
           dokumen pendukung yang dilampirkan dalam Laporan Pertanggungjawaban Bendahara.
         </p>
       </FAQItem>
 
-      <FAQItem question="Format Surat yang Dibutuhkan Ada di Mana?">
+      <FAQItem question="Lokasi Format Surat yang Diperlukan">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Buka menu <strong style={{ color: c.ink }}>Rekening Giro</strong>, lalu masuk ke submenu{" "}
-          <strong style={{ color: c.ink }}>Format Dokumen</strong>. Semua format sudah dikelompokkan per
-          kategori (Pembukaan, Perubahan & Penutupan, Non-PMK) — klik untuk membuka langsung di SharePoint
-          Kemenkeu.
+          <strong style={{ color: c.ink }}>Format Dokumen</strong>. Seluruh format telah dikelompokkan per
+          kategori (Pembukaan, Perubahan & Penutupan, Non-PMK) dan dapat dibuka langsung pada SharePoint Kemenkeu.
         </p>
       </FAQItem>
     </div>
@@ -2702,7 +2760,7 @@ function FAQGiroList({ onOpenMutasiDetail, onOpenIsuPenagihan }) {
 function FAQVirtualList({ onOpenMutasiDetail }) {
   return (
     <div className="flex flex-col">
-      <FAQItem question="Rekening Virtual (VA) itu Apa, Bedanya dari Giro?" defaultOpen>
+      <FAQItem question="Pengertian Rekening Virtual dan Perbedaannya dengan Rekening Giro" defaultOpen>
         <div className="overflow-x-auto" style={{ border: `1px solid ${c.line}` }}>
           <table className="w-full text-sm" style={{ borderCollapse: "collapse" }}>
             <thead>
@@ -2716,8 +2774,8 @@ function FAQVirtualList({ onOpenMutasiDetail }) {
               {[
                 ["Cakupan", "Hanya untuk jenis RPL", "Untuk seluruh rekening BPG, BPP, dan BPG VAT"],
                 ["Dasar hukum", "PMK-182/PMK.05/2017 — pembukaan s.d. penutupan", "PMK-183/PMK.05/2019 — pembukaan & penutupan (pengoperasian relatif sama dengan PMK-182)"],
-                ["Data rekening", "Terpisah-pisah, kantor pusat DJP tidak dapat memonitor", "Terkonsolidasi dan tersambung lewat kanal Dashboard"],
-                ["Pengambilan uang", "Cek/bilyet giro. Internet banking bisa dipakai sebagaimana mestinya", "Surat pendebitan (SPPR). Internet banking dipakai berdampingan dengan Dashboard"],
+                ["Data rekening", "Terpisah-pisah, kantor pusat DJP tidak dapat memonitor", "Terkonsolidasi dan tersambung melalui kanal Dashboard"],
+                ["Pengambilan uang", "Cek/bilyet giro. Internet banking bisa digunakan sebagaimana mestinya", "Surat pendebitan (SPPR). Internet banking digunakan berdampingan dengan Dashboard"],
                 ["Penyelesaian kendala", "Lewat cabang padanan masing-masing", "Bisa di cabang, grup WhatsApp Satker–KPDJP–Bank, atau channel khusus bank"],
               ].map((row, i) => (
                 <tr key={i}>
@@ -2731,16 +2789,16 @@ function FAQVirtualList({ onOpenMutasiDetail }) {
         </div>
       </FAQItem>
 
-      <FAQItem question="Kenapa Permohonan Rekening Virtual Harus Lewat Eselon I?">
+      <FAQItem question="Dasar Pengajuan Permohonan Rekening Virtual melalui Eselon I">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Beda dari RPL yang satker ajukan langsung ke KPPN, Rekening Satker (BPG/BPP) itu sub-akun virtual
           yang terkonsolidasi ke satu Rekening Induk di tingkat Eselon I. Karena itu, permohonan pembukaan,
-          perubahan, maupun penutupan Rekening Satker harus lewat Eselon I (di DJP: Sekretariat DJP/Bagian
+          perubahan, maupun penutupan Rekening Satker harus melalui Eselon I (di DJP: Sekretariat DJP/Bagian
           Keuangan Kantor Pusat) dulu, baru diteruskan ke KPPN Jakarta II.
         </p>
       </FAQItem>
 
-      <FAQItem question="BPG, BPP, dan BPG VAT — Apa Bedanya?">
+      <FAQItem question="Perbedaan BPG, BPP, dan BPG VAT">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-px" style={{ background: c.line, border: `1px solid ${c.line}` }}>
           <div className="p-5" style={{ background: c.paper }}>
             <div className="flex items-center gap-2 mb-2 flex-wrap"><p className="text-sm font-semibold">BPG</p><Pill>SUDAH PASTI ADA</Pill></div>
@@ -2757,22 +2815,21 @@ function FAQVirtualList({ onOpenMutasiDetail }) {
         </div>
       </FAQItem>
 
-      <FAQItem question="Apa itu Rekening Induk dan Struktur Konsolidasi VA?">
+      <FAQItem question="Rekening Induk dan Struktur Konsolidasi Rekening Virtual">
         <p className="text-sm mb-6" style={{ color: c.inkSoft }}>
-          Rekening Satker yang satker pegang sehari-hari sebenarnya cuma nomor identifikasi virtual di bawah
-          Rekening Induk yang dikelola kantor pusat. Satker tidak perlu mengurus Rekening Induk itu sendiri.
+          Rekening Satker yang dikelola sehari-hari pada dasarnya merupakan nomor identifikasi virtual di bawah Rekening Induk yang dikelola kantor pusat. Satker tidak perlu mengelola Rekening Induk tersebut.
         </p>
         <StrukturDiagram />
       </FAQItem>
 
-      <FAQItem question="Kapan Rekening Virtual Wajib Disetor/Dikosongkan?">
+      <FAQItem question="Ketentuan Penyetoran dan Penihilan Rekening Virtual">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           <strong style={{ color: c.ink }}>Rekening Virtual (BPG/BPP):</strong> saldo UP/TUP wajib nihil di
           akhir hari kerja tahun anggaran.
         </p>
       </FAQItem>
 
-      <FAQItem question="Apa itu CMS dan Dashboard?">
+      <FAQItem question="Pengertian CMS dan Dashboard">
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-px" style={{ background: c.line, border: `1px solid ${c.line}` }}>
           <div className="p-5" style={{ background: c.paper }}>
             <p className="text-sm font-semibold mb-2">CMS (Cash Management System)</p>
@@ -2785,12 +2842,12 @@ function FAQVirtualList({ onOpenMutasiDetail }) {
         </div>
       </FAQItem>
 
-      <FAQItem question="Kartu Debit Hilang atau Rusak, Harus Bagaimana?">
+      <FAQItem question="Penanganan Kartu Debit Hilang atau Rusak">
         <ol className="flex flex-col gap-3">
           {[
             "Segera kontak PIC Rekening atau beritahukan di Grup Rekening.",
-            "Bank Pusat biasanya menghubungi satker & Bank Cabang untuk otorisasi tarik tunai teller sementara tanpa kartu debit — akses Dashboard tetap bisa dipakai untuk memantau transaksi.",
-            "Bank Pusat menerbitkan kartu debit baru, dikirim lewat Bank Cabang ke satker.",
+            "Bank Pusat biasanya menghubungi satker & Bank Cabang untuk otorisasi tarik tunai teller sementara tanpa kartu debit — akses Dashboard tetap bisa digunakan untuk memantau transaksi.",
+            "Bank Pusat menerbitkan kartu debit baru, dikirim melalui Bank Cabang ke satker.",
           ].map((t, i) => (
             <li key={i} className="text-sm flex gap-3" style={{ color: c.inkSoft }}>
               <span className="flex-shrink-0 flex items-center justify-center text-xs font-semibold" style={{ width: 20, height: 20, border: `1px solid ${c.maroon}`, color: c.maroon, ...fontMono }}>{i + 1}</span>
@@ -2800,10 +2857,9 @@ function FAQVirtualList({ onOpenMutasiDetail }) {
         </ol>
       </FAQItem>
 
-      <FAQItem question="Ada Mutasi KPA/Bendahara, Harus Ngapain?">
+      <FAQItem question="Prosedur saat Terjadi Mutasi KPA/Bendahara">
         <p className="text-sm mb-5" style={{ color: c.inkSoft }}>
-          Singkatnya: pejabat lama wajib bikin BAST (termasuk akses Dashboard), pejabat baru lapor ke bank &
-          pastikan aksesnya jalan. Prosedur lengkap per bank (BRI/Mandiri/BNI/BSI) beda-beda.
+          Secara ringkas: pejabat lama wajib menyusun BAST (termasuk akses Dashboard), sedangkan pejabat baru menyampaikan pemberitahuan ke bank dan memastikan aksesnya berfungsi. Prosedur lengkap pada masing-masing bank (BRI/Mandiri/BNI/BSI) berbeda-beda.
         </p>
         {onOpenMutasiDetail && (
           <button
@@ -2811,28 +2867,27 @@ function FAQVirtualList({ onOpenMutasiDetail }) {
             className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold"
             style={{ background: c.maroon, color: c.paper }}
           >
-            📖 Lihat Panduan Lengkap →
+            Lihat Panduan Lengkap
           </button>
         )}
       </FAQItem>
 
-      <FAQItem question="Bisa Pindah Bank? Bagaimana Caranya?">
+      <FAQItem question="Prosedur Perubahan Bank Tempat Pembukaan Rekening">
         <p className="text-sm" style={{ color: c.ink }}>
-          Bisa. Satker mengajukan permohonan lewat <strong>Eselon I</strong> ke <strong>KPPN Jakarta II</strong>,
+          Dapat dilakukan. Satker mengajukan permohonan melalui <strong>Eselon I</strong> ke <strong>KPPN Jakarta II</strong>,
           lalu membuka rekening VA baru di bank tujuan — satker akan pegang <strong>2 rekening VA aktif
           sementara</strong> selama masa transisi sebelum yang lama ditutup.
         </p>
       </FAQItem>
 
-      <FAQItem question="Saldo Dashboard Beda dengan Catatan Bank, Harus Bagaimana?">
+      <FAQItem question="Penanganan Selisih Saldo Dashboard dengan Catatan Bank">
         <p className="text-sm" style={{ color: c.inkSoft }}>
-          Hubungi Bank Pusat lewat Grup Rekening WhatsApp, atau lewat kanal resmi perbankan (email/telepon), untuk
-          meminta rekonsiliasi ulang antara data Dashboard dan catatan bank. Jangan mendiamkan selisih ini —
-          makin cepat dilaporkan, makin gampang ditelusuri sumber selisihnya.
+          Hubungi Bank Pusat melalui Grup Rekening WhatsApp, atau melalui kanal resmi perbankan (email/telepon), untuk
+          meminta rekonsiliasi ulang antara data Dashboard dan catatan bank. Selisih tersebut agar tidak dibiarkan — semakin cepat dilaporkan, semakin mudah sumber selisih ditelusuri.
         </p>
       </FAQItem>
 
-      <FAQItem question="BPG VAT — Satker Mana Saja yang Punya, Bisa Nambah?">
+      <FAQItem question="Cakupan Satker Pengelola BPG VAT dan Ketentuan Penambahannya">
         <p className="text-sm mb-4" style={{ color: c.inkSoft }}>
           Saat ini BPG VAT hanya ada di 5 satker:
         </p>
@@ -2856,15 +2911,15 @@ function FAQVirtualList({ onOpenMutasiDetail }) {
         </p>
       </FAQItem>
 
-      <FAQItem question="Lupa Akses Dashboard (Bukan karena Mutasi), Harus Bagaimana?">
+      <FAQItem question="Pemulihan Akses Dashboard di Luar Konteks Mutasi">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Buat surat permohonan perubahan data perbankan, isi dengan data akses yang baru yang dibutuhkan
           satker. Ini prosedur yang sama dengan permohonan perubahan data pemegang CMS & Dashboard saat mutasi
-          — cuma alasannya beda, bukan karena pergantian pejabat.
+          — dengan dasar yang berbeda, yaitu bukan karena pergantian pejabat.
         </p>
       </FAQItem>
 
-      <FAQItem question="Berapa Maksimal Jumlah BPP yang Boleh Dibuka?">
+      <FAQItem question="Ketentuan Jumlah Maksimal BPP yang Dapat Dibuka">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Tidak ada batas angka pasti — jumlah BPP yang dibuka bebas mengikuti kebutuhan satker, dengan{" "}
           <strong style={{ color: c.ink }}>maksimal sebanyak jumlah KP2KP</strong> yang dimiliki satker tersebut,
@@ -2872,15 +2927,15 @@ function FAQVirtualList({ onOpenMutasiDetail }) {
         </p>
       </FAQItem>
 
-      <FAQItem question="SPPR — Siapa yang Harus Tanda Tangan?">
+      <FAQItem question="Pihak Penanda Tangan SPPR">
         <p className="text-sm mb-4" style={{ color: c.inkSoft }}>
           Surat Perintah Pendebitan Rekening (SPPR) ditandatangani <strong style={{ color: c.ink }}>KPA/PPK
           dan Bendahara</strong>. Wajib dibuat untuk:
         </p>
         <ul className="flex flex-col gap-2 mb-4">
           {[
-            "Penarikan tunai lewat teller — SPPR diserahkan ke teller, salinannya disimpan satker sebagai arsip.",
-            "Penarikan tunai lewat ATM — SPPR disimpan sebagai arsip pendukung transaksi.",
+            "Penarikan tunai melalui teller — SPPR diserahkan ke teller, salinannya disimpan satker sebagai arsip.",
+            "Penarikan tunai melalui ATM — SPPR disimpan sebagai arsip pendukung transaksi.",
           ].map((t, i) => (
             <li key={i} className="text-sm flex gap-2" style={{ color: c.inkSoft }}>
               <span style={{ color: c.maroon, flexShrink: 0 }}>—</span>
@@ -2889,12 +2944,12 @@ function FAQVirtualList({ onOpenMutasiDetail }) {
           ))}
         </ul>
         <p className="text-sm" style={{ color: c.inkSoft }}>
-          Untuk transaksi lewat CMS, SPPR tidak diperlukan — dasar pendebitannya sudah tercatat otomatis di
+          Untuk transaksi melalui CMS, SPPR tidak diperlukan — dasar pendebitannya telah tercatat secara otomatis pada
           sistem CMS.
         </p>
       </FAQItem>
 
-      <FAQItem question="Berapa Lama Proses Pembukaan Rekening Virtual?">
+      <FAQItem question="Jangka Waktu Proses Pembukaan Rekening Virtual">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Eselon I meneruskan permohonan ke Kuasa BUN di Daerah <strong style={{ color: c.ink }}>paling lambat 5
           hari kerja</strong> sejak diterima dari satker. Setelah disetujui, bank membuka Rekening Satker dan
@@ -2903,16 +2958,16 @@ function FAQVirtualList({ onOpenMutasiDetail }) {
         </p>
       </FAQItem>
 
-      <FAQItem question="Kenapa BPP Harus di Bank yang Sama dengan BPG Induknya?">
+      <FAQItem question="Dasar Ketentuan BPP Dibuka pada Bank yang Sama dengan BPG Induk">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Karena Rekening Pengeluaran Pembantu (BPP) memang dibuka di bank mitra yang sama dengan Rekening
           Pengeluaran (BPG) satker yang bersangkutan — bukan pilihan bebas. Ini bagian dari desain struktur
-          konsolidasi VA, supaya pengkreditan BPP tetap bisa otomatis terhubung ke Rekening Induk lewat BPG
+          konsolidasi VA, supaya pengkreditan BPP tetap bisa otomatis terhubung ke Rekening Induk melalui BPG
           induknya.
         </p>
       </FAQItem>
 
-      <FAQItem question="Siapa yang Mengoperasikan BPG vs BPP?">
+      <FAQItem question="Pihak yang Mengoperasikan BPG dan BPP">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           <strong style={{ color: c.ink }}>Rekening Pengeluaran (BPG)</strong> dioperasikan oleh Bendahara
           Pengeluaran. <strong style={{ color: c.ink }}>Rekening Pengeluaran Pembantu (BPP)</strong> dioperasikan
@@ -2921,9 +2976,9 @@ function FAQVirtualList({ onOpenMutasiDetail }) {
         </p>
       </FAQItem>
 
-      <FAQItem question="Kapan Transaksi Tunai Boleh Dipakai di Rekening Virtual?">
+      <FAQItem question="Kondisi yang Memperbolehkan Transaksi Tunai pada Rekening Virtual">
         <p className="text-sm mb-4" style={{ color: c.inkSoft }}>
-          Transaksi diusahakan selalu non-tunai (lewat CMS atau kartu debit). Tunai hanya untuk kondisi tertentu:
+          Transaksi diusahakan selalu non-tunai (melalui CMS atau kartu debit). Tunai hanya untuk kondisi tertentu:
         </p>
         <ul className="flex flex-col gap-2">
           {[
@@ -2939,16 +2994,16 @@ function FAQVirtualList({ onOpenMutasiDetail }) {
         </ul>
       </FAQItem>
 
-      <FAQItem question="Kapan SPPR Wajib Dibuat?">
+      <FAQItem question="Ketentuan Kewajiban Pembuatan SPPR">
         <p className="text-sm" style={{ color: c.inkSoft }}>
-          Setiap kali ada pengambilan tunai — baik lewat ATM maupun teller — wajib disertai Kartu Debit{" "}
+          Setiap kali ada pengambilan tunai — baik melalui ATM maupun teller — wajib disertai Kartu Debit{" "}
           <strong style={{ color: c.ink }}>DAN</strong> Surat Perintah Pendebitan Rekening (SPPR). Formatnya ada
-          di Lampiran PMK-183/PMK.05/2019. Transaksi lewat CMS tidak butuh SPPR terpisah, karena dasar
-          pendebitannya sudah tercatat otomatis di sistem CMS.
+          di Lampiran PMK-183/PMK.05/2019. Transaksi melalui CMS tidak butuh SPPR terpisah, karena dasar
+          pendebitannya telah tercatat secara otomatis pada sistem CMS.
         </p>
       </FAQItem>
 
-      <FAQItem question="Kenapa Saldo UP/TUP Rekening Virtual Harus Nihil di Akhir Tahun?">
+      <FAQItem question="Kewajiban Penihilan Saldo UP/TUP Akhir Tahun Anggaran">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Ini kewajiban penihilan akhir tahun anggaran — pada akhir hari kerja tahun anggaran, sisa saldo
           Rekening Pengeluaran yang bersumber dari dana UP/TUP wajib nihil, mengikuti ketentuan PMK mengenai
@@ -2956,47 +3011,47 @@ function FAQVirtualList({ onOpenMutasiDetail }) {
         </p>
       </FAQItem>
 
-      <FAQItem question="Kenapa Rekening Virtual Tidak Perlu Lapor Manual ke KPPN Seperti RPL?">
+      <FAQItem question="Dasar Perbedaan Mekanisme Pelaporan Rekening Virtual dan RPL">
         <p className="text-sm" style={{ color: c.inkSoft }}>
-          Karena pelaporan saldo Rekening Pengeluaran sudah dihasilkan secara elektronik lewat Dashboard yang
+          Pelaporan saldo Rekening Pengeluaran telah dihasilkan secara elektronik melalui Dashboard yang
           diberikan bank — beda dari RPL yang harus disusun dan dikirim manual tiap bulan. Satker cukup pastikan
           akses Dashboard aktif dan dipantau rutin.
         </p>
       </FAQItem>
 
-      <FAQItem question="Kenapa Proses Pindah Bank Rekening Virtual Bisa Sampai 13 Langkah?">
+      <FAQItem question="Latar Belakang Panjangnya Tahapan Perubahan Bank Rekening Virtual">
         <p className="text-sm" style={{ color: c.inkSoft }}>
-          Karena rekening VA bukan cuma dipindah begitu saja — prosesnya harus melalui Eselon I, KPPN Jakarta
+          Rekening VA tidak dapat dipindahkan secara langsung — prosesnya harus melalui Eselon I, KPPN Jakarta
           II, bank lama, dan bank baru secara berurutan, plus ada masa transisi di mana satker memegang 2
           rekening VA aktif sekaligus sebelum yang lama benar-benar ditutup. Setiap tahap punya dokumen dan
           pihak yang berbeda, makanya jadi panjang.
         </p>
       </FAQItem>
 
-      <FAQItem question="Bisa Buka VA Baru Khusus untuk KP2KP? Bagaimana Caranya?">
+      <FAQItem question="Prosedur Pembukaan Rekening Virtual Baru untuk KP2KP">
         <p className="text-sm" style={{ color: c.inkSoft }}>
-          Bisa. Berlaku untuk KP2KP yang perlu membuka rekening VA baru, memakai bank yang sama dengan Bank BPG
-          induknya. Prosesnya mirip pembukaan rekening biasa: surat permohonan sesuai Format IV lewat aplikasi
+          Dapat dilakukan. Ketentuan ini berlaku bagi KP2KP yang perlu membuka rekening VA baru, menggunakan bank yang sama dengan Bank BPG
+          induknya. Prosesnya mirip pembukaan rekening biasa: surat permohonan sesuai Format IV melalui aplikasi
           Nadine ke Sekretaris Direktorat Jenderal Pajak, diteruskan Kantor Pusat DJP ke KPPN Jakarta II, sampai
           akhirnya VA baru aktif dan terdaftar di SAKTI dan SPAN. Detail lengkapnya ada di menu Regulasi Rekening
           Virtual bagian "Kasus Khusus KP2KP".
         </p>
       </FAQItem>
 
-      <FAQItem question="Berapa Lama Satker Pegang 2 Rekening VA Aktif Saat Pindah Bank?">
+      <FAQItem question="Jangka Waktu Kepemilikan Dua Rekening Virtual Aktif saat Perubahan Bank">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Sampai rekening VA baru dipastikan lancar menerima SP2D dari KPPN dan Laporan Pemindahbukuan (Format
-          X) sudah dibuat — baru setelah itu KPPN Jakarta II menerbitkan surat perintah penutupan ke bank lama.
+          X) telah disusun. Setelah itu, KPPN Jakarta II menerbitkan surat perintah penutupan kepada bank lama.
           Tidak ada angka hari pasti karena tergantung kecepatan verifikasi tiap tahap; yang penting satker
           tidak menutup rekening lama sebelum rekening baru benar-benar berfungsi penuh.
         </p>
       </FAQItem>
 
-      <FAQItem question="Format Surat yang Dibutuhkan Ada di Mana?">
+      <FAQItem question="Lokasi Format Surat yang Diperlukan">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Buka menu <strong style={{ color: c.ink }}>Rekening Virtual</strong>, lalu masuk ke submenu{" "}
-          <strong style={{ color: c.ink }}>Format Dokumen</strong>. Semua format sudah dikelompokkan per
-          kategori — klik untuk membuka langsung di SharePoint Kemenkeu.
+          <strong style={{ color: c.ink }}>Format Dokumen</strong>. Seluruh format telah dikelompokkan per
+          kategori dan dapat dibuka langsung pada SharePoint Kemenkeu.
         </p>
       </FAQItem>
     </div>
@@ -3006,7 +3061,7 @@ function FAQVirtualList({ onOpenMutasiDetail }) {
 function FAQKKPList({ onOpenMutasiDetail }) {
   return (
     <div className="flex flex-col">
-      <FAQItem question="KKP-BO vs KKP-PD — Apa Bedanya?" defaultOpen>
+      <FAQItem question="Perbedaan KKP-BO dan KKP-PD" defaultOpen>
         <div className="flex flex-col" style={{ border: `1px solid ${c.line}` }}>
           {jenisKKP.map((j, i) => (
             <div
@@ -3031,7 +3086,7 @@ function FAQKKPList({ onOpenMutasiDetail }) {
         </div>
       </FAQItem>
 
-      <FAQItem question="Siapa yang Berwenang Mengelola KKP di Satker?">
+      <FAQItem question="Pihak yang Berwenang Mengelola KKP di Satker">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-px" style={{ background: c.line, border: `1px solid ${c.line}` }}>
           <div className="p-5" style={{ background: c.paper }}>
             <p className="text-sm font-semibold mb-2">KPA</p>
@@ -3048,7 +3103,7 @@ function FAQKKPList({ onOpenMutasiDetail }) {
         </div>
       </FAQItem>
 
-      <FAQItem question="Apa itu PKS dan SK/KEP untuk KKP?">
+      <FAQItem question="Pengertian PKS dan SK/KEP dalam Pengelolaan KKP">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Dua dokumen dasar yang wajib ada sebelum satker bisa punya kartu apa pun.{" "}
           <strong style={{ color: c.ink }}>PKS (Perjanjian Kerja Sama)</strong> adalah perjanjian satker dengan
@@ -3058,7 +3113,22 @@ function FAQKKPList({ onOpenMutasiDetail }) {
         </p>
       </FAQItem>
 
-      <FAQItem question="Kanal Transaksi KKP — EDC, e-Katalog, DIGIPay, Apa Bedanya?">
+      <FAQItem question="Muatan Surat Perjanjian Penggunaan KKP">
+        <p className="text-sm mb-4" style={{ color: c.inkSoft }}>
+          Beda dari PKS (satker–bank) dan SK (KPA–internal), ini perjanjian antara{" "}
+          <strong style={{ color: c.ink }}>KPA dengan tiap pemegang kartu</strong> — ditandatangani{" "}
+          <strong style={{ color: c.ink }}>bersamaan dengan BAST</strong>, tepat saat kartu diserahkan.
+          Menandatanganinya adalah kewajiban resmi Pemegang KKP per PMK-196/PMK.05/2018, bukan formalitas
+          opsional. Isinya minimal memuat:
+        </p>
+        <p className="text-sm" style={{ color: c.inkSoft }}>
+          Definisi, maksud dan tujuan, ruang lingkup perjanjian, penerbitan dan penerimaan kartu, penggunaan
+          KKP, hak dan kewajiban para pihak, PIN, limit penggunaan kartu, penghentian perjanjian, sanksi, dan
+          penyelesaian perselisihan.
+        </p>
+      </FAQItem>
+
+      <FAQItem question="Kanal Transaksi KKP: EDC, e-Katalog, dan DIGIPay">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-px" style={{ background: c.line, border: `1px solid ${c.line}` }}>
           <div className="p-5" style={{ background: c.paper }}>
             <p className="text-sm font-semibold mb-2">EDC</p>
@@ -3075,18 +3145,18 @@ function FAQKKPList({ onOpenMutasiDetail }) {
         </div>
       </FAQItem>
 
-      <FAQItem question="Berapa Maksimal Kartu yang Boleh Dipegang Satu Orang?">
+      <FAQItem question="Ketentuan Jumlah Maksimal Kartu per Pemegang">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Maksimal <strong style={{ color: c.ink }}>2 kartu aktif per pemegang</strong> — 1 KKP-BO dan 1 KKP-PD
           sekaligus, tidak lebih dari itu masing-masing.
         </p>
       </FAQItem>
 
-      <FAQItem question="Kartu KKP Hilang atau Rusak, Harus Bagaimana?">
+      <FAQItem question="Penanganan Kartu KKP Hilang atau Rusak">
         <ol className="flex flex-col gap-3">
           {[
             "Segera ajukan Surat Permohonan Penutupan KKP ke bank penerbit, dilampiri surat kehilangan untuk kartu yang hilang.",
-            "Setelah kartu ditutup, Admin KKP mengajukan kartu pengganti lewat Surat Permohonan Penerbitan KKP yang sama seperti pengajuan kartu baru — karena pemegangnya tetap sama, tidak perlu melalui siklus perubahan SK.",
+            "Setelah kartu ditutup, Admin KKP mengajukan kartu pengganti melalui Surat Permohonan Penerbitan KKP yang sama seperti pengajuan kartu baru — karena pemegangnya tetap sama, tidak perlu melalui siklus perubahan SK.",
             "Catat kejadian ini pada dokumentasi internal satker.",
           ].map((t, i) => (
             <li key={i} className="text-sm flex gap-3" style={{ color: c.inkSoft }}>
@@ -3097,11 +3167,9 @@ function FAQKKPList({ onOpenMutasiDetail }) {
         </ol>
       </FAQItem>
 
-      <FAQItem question="Ada Mutasi Pemegang Kartu atau Admin KKP, Harus Ngapain?">
+      <FAQItem question="Prosedur saat Terjadi Mutasi Pemegang Kartu atau Admin KKP">
         <p className="text-sm mb-5" style={{ color: c.inkSoft }}>
-          Singkatnya: SK diperbarui dulu lewat persetujuan KPA — baru kartu bisa ditarik/diterbitkan ke bank
-          (kalau pemegang kartu yang berubah), atau bank cukup diberitahu sebagai update kontak (kalau cuma
-          Admin KKP yang berubah).
+          Secara ringkas: SK diperbarui terlebih dahulu melalui persetujuan KPA, kemudian kartu dapat ditutup/diterbitkan ke bank apabila pemegang kartu yang berubah. Apabila hanya Admin KKP yang berubah, bank cukup diberikan pemberitahuan sebagai pemutakhiran data kontak.
         </p>
         {onOpenMutasiDetail && (
           <button
@@ -3109,29 +3177,29 @@ function FAQKKPList({ onOpenMutasiDetail }) {
             className="inline-flex items-center gap-2 px-5 py-2.5 text-sm font-semibold"
             style={{ background: c.maroon, color: c.paper }}
           >
-            📖 Lihat Panduan Lengkap →
+            Lihat Panduan Lengkap
           </button>
         )}
       </FAQItem>
 
-      <FAQItem question="Kenapa Ada Istilah Kartu Dormant?">
+      <FAQItem question="Pengertian dan Risiko Kartu Dormant">
         <p className="text-sm" style={{ color: c.inkSoft }}>
-          Kartu dormant adalah kartu yang tetap aktif secara sistem meski pemegangnya sudah mutasi, pensiun,
+          Kartu dormant adalah kartu yang tetap aktif secara sistem meskipun pemegangnya telah mutasi, pensiun,
           meninggal dunia, atau cuti di luar tanggungan negara — biasanya karena SK-nya tidak segera
           diperbarui. Ini isu kepatuhan, bukan sekadar urusan administratif yang bisa ditunda: segera proses
           perubahan SK dan penarikan kartu begitu kondisi ini terjadi.
         </p>
       </FAQItem>
 
-      <FAQItem question="Bisa Naikkan Limit KKP-BO?">
+      <FAQItem question="Ketentuan Perubahan Limit KKP-BO">
         <p className="text-sm" style={{ color: c.inkSoft }}>
-          Bisa. KPA mengajukan permohonan ke bank penerbit disertai justifikasi kebutuhan — umumnya untuk
-          transaksi lewat e-Katalog atau DIGIPay. Limit KKP-BO dapat dinaikkan dari batas umum Rp50 juta sampai
+          Dapat dilakukan. KPA mengajukan permohonan kepada bank penerbit disertai justifikasi kebutuhan — umumnya untuk
+          transaksi melalui e-Katalog atau DIGIPay. Limit KKP-BO dapat dinaikkan dari batas umum Rp50 juta sampai
           maksimal Rp200 juta per rekanan, khusus untuk transaksi produk dalam negeri UMK.
         </p>
       </FAQItem>
 
-      <FAQItem question="Pilih DIGIPay atau e-Katalog, Ada Kriterianya?">
+      <FAQItem question="Kriteria Pemilihan Kanal DIGIPay atau e-Katalog">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Tidak ada kriteria kelayakan khusus yang membedakan keduanya — pemilihan kanal mengikuti ketentuan
           pengadaan yang berlaku dan ketersediaan penyedia/produk di masing-masing kanal saat transaksi
@@ -3139,23 +3207,23 @@ function FAQKKPList({ onOpenMutasiDetail }) {
         </p>
       </FAQItem>
 
-      <FAQItem question="Ada Sanksi Kalau KKP Dipakai di Luar Peruntukan?">
+      <FAQItem question="Konsekuensi Penggunaan KKP di Luar Peruntukan">
         <p className="text-sm" style={{ color: c.inkSoft }}>
-          Ada. Kalau kartu dipakai untuk transaksi di luar peruntukannya (misalnya untuk keperluan non-operasional),
+          Ada. Apabila kartu digunakan untuk transaksi di luar peruntukannya (misalnya untuk keperluan non-operasional),
           tagihan tersebut <strong style={{ color: c.ink }}>tidak dapat dibebankan ke APBN</strong>. Satker
           dan/atau pemegang KKP yang melakukan transaksi tersebut wajib mengganti sendiri tagihannya.
         </p>
       </FAQItem>
 
-      <FAQItem question="Kanwil atau Kantor Pusat Bisa Pakai KKP Satker Lain?">
+      <FAQItem question="Ketentuan Penggunaan KKP Antarsatker">
         <p className="text-sm" style={{ color: c.inkSoft }}>
-          Tidak bisa. KKP sifatnya <strong style={{ color: c.ink }}>satu kartu untuk satu satker</strong> —
+          Tidak diperbolehkan. KKP bersifat <strong style={{ color: c.ink }}>satu kartu untuk satu satker</strong> —
           Kanwil dan Kantor Pusat tidak bisa menggunakan KKP milik satker/KPP di bawahnya, dan begitu juga
-          sebaliknya. Setiap satker mengelola KKP-nya masing-masing lewat PKS dan SK-nya sendiri.
+          sebaliknya. Setiap satker mengelola KKP-nya masing-masing melalui PKS dan SK-nya sendiri.
         </p>
       </FAQItem>
 
-      <FAQItem question="Apa Dasar Hukum KKP?">
+      <FAQItem question="Dasar Hukum Pengelolaan KKP">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           <strong style={{ color: c.ink }}>PMK-196/PMK.05/2018</strong> tentang Tata Cara Pembayaran dan
           Penggunaan Kartu Kredit Pemerintah, sebagaimana diubah dengan{" "}
@@ -3165,7 +3233,7 @@ function FAQKKPList({ onOpenMutasiDetail }) {
         </p>
       </FAQItem>
 
-      <FAQItem question="Kenapa DJP Mengimbau Satker Pakai KKP?">
+      <FAQItem question="Dasar Pertimbangan Imbauan Penggunaan KKP di DJP">
         <p className="text-sm mb-4" style={{ color: c.inkSoft }}>
           Per ND-1951/PJ.01/2026, ada 4 pertimbangan utama:
         </p>
@@ -3184,7 +3252,7 @@ function FAQKKPList({ onOpenMutasiDetail }) {
         </ul>
       </FAQItem>
 
-      <FAQItem question="Apa Saja 5 Dokumen Wajib Administrasi KKP?">
+      <FAQItem question="Dokumen Wajib Administrasi KKP">
         <p className="text-sm mb-4" style={{ color: c.inkSoft }}>
           Sesuai ND-1951/PJ.01/2026, satker wajib punya kelengkapan dokumen administrasi berikut:
         </p>
@@ -3204,14 +3272,14 @@ function FAQKKPList({ onOpenMutasiDetail }) {
         </ol>
       </FAQItem>
 
-      <FAQItem question="Berapa Lama Bank Verifikasi Permohonan Penerbitan KKP?">
+      <FAQItem question="Jangka Waktu Verifikasi Permohonan Penerbitan KKP">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Paling lambat <strong style={{ color: c.ink }}>6 hari kerja</strong> setelah surat permohonan
           diterima bank penerbit.
         </p>
       </FAQItem>
 
-      <FAQItem question="Siapa yang Bisa Jadi Pemegang KKP-BO dan KKP-PD?">
+      <FAQItem question="Kriteria Pemegang KKP-BO dan KKP-PD">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           <strong style={{ color: c.ink }}>KKP-BO:</strong> pejabat pengadaan, pejabat struktural, pelaksana,
           atau pegawai lain yang bertugas dalam pengadaan barang/jasa. <strong style={{ color: c.ink }}>KKP-PD:</strong>{" "}
@@ -3220,46 +3288,44 @@ function FAQKKPList({ onOpenMutasiDetail }) {
         </p>
       </FAQItem>
 
-      <FAQItem question="Boleh Admin KKP Merangkap Jadi Pemegang Kartu?">
+      <FAQItem question="Ketentuan Rangkap Jabatan Admin KKP dan Pemegang Kartu">
         <p className="text-sm" style={{ color: c.inkSoft }}>
-          Secara aturan boleh — PMK KKP tidak melarangnya secara eksplisit. Tapi ini bukan praktik yang
-          dianjurkan, karena mengurangi pemisahan tugas (segregation of duties) antara yang mengelola
-          administrasi kartu dan yang bertransaksi dengan kartu itu sendiri.
+          Secara ketentuan diperbolehkan — PMK KKP tidak melarangnya secara eksplisit. Namun demikian, praktik ini tidak dianjurkan karena mengurangi pemisahan tugas (segregation of duties) antara pihak yang mengelola administrasi kartu dan pihak yang melakukan transaksi dengan kartu tersebut.
         </p>
       </FAQItem>
 
-      <FAQItem question="Bisa Satker Punya Lebih dari 1 Admin KKP?">
+      <FAQItem question="Ketentuan Jumlah Admin KKP per Satker">
         <p className="text-sm" style={{ color: c.inkSoft }}>
-          Bisa. Satu satker boleh punya lebih dari satu Admin KKP — tidak dibatasi hanya satu orang. Semua yang
+          Diperbolehkan. Satu satker dapat memiliki lebih dari satu Admin KKP — tidak dibatasi hanya satu orang. Seluruh pihak yang
           ditunjuk KPA dan tercantum pada SK terakhir yang berlaku adalah Admin KKP yang sah.
         </p>
       </FAQItem>
 
-      <FAQItem question="Kenapa Pengajuan GUP KKP Harus Terpisah dari SPP/SPM Biasa?">
+      <FAQItem question="Dasar Pemisahan Pengajuan GUP KKP dari SPP/SPM Lainnya">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Karena SPP-GUP KKP/SPM-GUP KKP punya alur dan dasar dokumen sendiri — berdasarkan Daftar Pembayaran
           Tagihan (DPT) yang sudah disahkan PPK, bukan tagihan pelaksanaan APBN pada umumnya. Mencampur
-          keduanya berisiko bikin proses verifikasi di KPPN jadi tidak jelas mana yang termasuk pertanggungjawaban
+          keduanya berisiko menimbulkan ketidakjelasan dalam proses verifikasi di KPPN mengenai bagian yang termasuk pertanggungjawaban
           KKP dan mana yang bukan.
         </p>
       </FAQItem>
 
-      <FAQItem question="Apa Kesalahan Paling Sering Ditemukan Saat Pengisian DPT KKP?">
+      <FAQItem question="Kesalahan Umum dalam Pengisian DPT KKP">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Kolom yang dibiarkan kosong — terutama <strong style={{ color: c.ink }}>nama pemegang KKP dan nomor
           KKP</strong>. Pastikan seluruh kolom DPT terisi lengkap dan sesuai ketentuan sebelum diajukan, supaya
-          tidak kena koreksi dari KPPN dan proses GUP tidak molor.
+          tidak terkena koreksi dari KPPN dan proses GUP tidak terhambat.
         </p>
       </FAQItem>
 
-      <FAQItem question="KKP Dilaporkan di Mana?">
+      <FAQItem question="Mekanisme Pelaporan Penggunaan KKP">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Penggunaan UP KKP dilaporkan sebagai bagian dari Laporan Pertanggungjawaban (LPJ) Bendahara bulanan —
           tidak ada laporan terpisah khusus KKP di luar LPJ tersebut.
         </p>
       </FAQItem>
 
-      <FAQItem question="Apa yang Perlu Disiapkan Satker Saat Rekonsiliasi Data KKP?">
+      <FAQItem question="Persiapan Satker dalam Rekonsiliasi Data KKP">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Pastikan data pemegang kartu, nomor kartu, dan limit yang tercatat di satker selalu sesuai dengan
           catatan bank penerbit. Ketidaksesuaian data ini yang paling sering jadi temuan saat rekonsiliasi
@@ -3267,17 +3333,17 @@ function FAQKKPList({ onOpenMutasiDetail }) {
         </p>
       </FAQItem>
 
-      <FAQItem question="Apa itu Inventarisasi KKP yang Diminta DJP Tahun 2026?">
+      <FAQItem question="Inventarisasi KKP di Lingkungan DJP Tahun 2026">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Sesuai ND-1951/PJ.01/2026 (8 Juni 2026), seluruh satker diminta melakukan inventarisasi dan
-          menyampaikan informasi terkait penggunaan KKP serta kelengkapan dokumen administrasinya lewat tautan
+          menyampaikan informasi terkait penggunaan KKP serta kelengkapan dokumen administrasinya melalui tautan
           resmi yang dicantumkan di nota dinas tersebut, dengan tenggat <strong style={{ color: c.ink }}>12 Juni
           2026</strong>. Ini permintaan satu kali terkait pemantauan implementasi KKP di lingkungan DJP saat itu
-          — kalau ada inventarisasi serupa berikutnya, biasanya akan diedarkan lewat nota dinas baru.
+          — apabila ada inventarisasi serupa berikutnya, biasanya akan diedarkan melalui nota dinas baru.
         </p>
       </FAQItem>
 
-      <FAQItem question="Format Surat yang Dibutuhkan Ada di Mana?">
+      <FAQItem question="Lokasi Format Surat yang Diperlukan">
         <p className="text-sm" style={{ color: c.inkSoft }}>
           Buka menu <strong style={{ color: c.ink }}>Kartu Kredit</strong>, lalu masuk ke submenu{" "}
           <strong style={{ color: c.ink }}>Format Dokumen</strong>. Semua format dikelompokkan per kategori
@@ -3374,8 +3440,7 @@ function MutasiPejabatDetailPage({ onBack, onGoToFormatGiro, onGoToFormatVirtual
         Prosedur Serah Terima Rekening &amp; KKP sehubungan Mutasi
       </h1>
       <p className="text-sm mb-8 max-w-2xl" style={{ color: c.inkSoft }}>
-        Berlaku setiap kali KPA, Bendahara, Admin KKP, dan/atau pemegang kartu KKP berganti. Pilih tab sesuai
-        yang sedang kamu urus.
+        Berlaku setiap kali KPA, Bendahara, Admin KKP, dan/atau pemegang kartu KKP berganti. Pilih tab sesuai keperluan.
       </p>
 
       <TabSwitch
@@ -3401,7 +3466,7 @@ function RekeningMutasiTab({ onGoToFormatGiro, onGoToFormatVirtual, onGoToBantua
       <div className="flex gap-4 p-5 mb-12" style={{ background: c.maroon, boxShadow: `0 0 0 3px ${c.gold}` }}>
         <span className="text-lg leading-none flex-shrink-0" style={{ color: c.goldBright }}>★</span>
         <p className="text-sm font-semibold" style={{ color: c.paper }}>
-          Satker WAJIB membuat BAST setiap kali terjadi mutasi — jangan pernah serah terima akses cuma lisan.
+          Satker WAJIB membuat BAST setiap kali terjadi mutasi — jangan pernah serah terima akses hanya lisan.
         </p>
       </div>
 
@@ -3443,7 +3508,7 @@ function RekeningMutasiTab({ onGoToFormatGiro, onGoToFormatVirtual, onGoToBantua
               {[
                 <>Menerima dan menandatangani BAST dari pejabat lama, lalu join Grup Rekening. {onGoToBantuan && <InlineDocLink onClick={onGoToBantuan} tone="light">Lihat link grup</InlineDocLink>}</>,
                 <>Memberitahukan ke Bank Padanan Satker sesuai dokumen yang ditentukan bank. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQBXWDXnDcMZQ4UA2TfJIW1fATPOCPQN1WiP2Zu_YzMLkfg?e=fiVliU" tone="light">Buka format surat perubahan data</InlineDocLink></>,
-                "Memastikan login akun perbankan & transaksi sudah bisa dijalankan.",
+                "Memastikan login akun perbankan dan transaksi telah dapat dijalankan.",
                 "Berkonsultasi ke cabang Bank Padanan bila ada kendala akses/transaksi.",
               ].map((t, i) => (
                 <li key={i} className="text-sm flex gap-3" style={{ color: "#F0D9D9" }}>
@@ -3478,7 +3543,7 @@ function RekeningMutasiTab({ onGoToFormatGiro, onGoToFormatVirtual, onGoToBantua
           </div>
           <div className="p-5" style={{ background: c.paper }}>
             <p className="text-sm font-semibold mb-2">Akses CMS & Dashboard</p>
-            <p className="text-sm" style={{ color: c.inkSoft }}>Company ID/Corporate ID, Username, Password (khusus rekening Virtual — kalau RPL cukup akses CMS saja).</p>
+            <p className="text-sm" style={{ color: c.inkSoft }}>Company ID/Corporate ID, Username, Password (khusus rekening Virtual — apabila RPL cukup akses CMS saja).</p>
           </div>
         </div>
         <p className="text-sm mt-4" style={{ color: c.inkSoft }}>
@@ -3489,7 +3554,7 @@ function RekeningMutasiTab({ onGoToFormatGiro, onGoToFormatVirtual, onGoToBantua
 
       {/* Onboarding checklist */}
       <section className="mb-14">
-        <h2 className="text-xl font-semibold mb-6" style={fontDisplay}>Things to Do untuk Bendahara Baru</h2>
+        <h2 className="text-xl font-semibold mb-6" style={fontDisplay}>Langkah yang Perlu Dilakukan Bendahara Baru</h2>
         <div className="flex flex-col">
           {[
             ["Pahami isi BAST", "Baca detail rekening, akses, dan tanggung jawab yang diserahterimakan."],
@@ -3519,7 +3584,7 @@ function RekeningMutasiTab({ onGoToFormatGiro, onGoToFormatVirtual, onGoToBantua
       {/* Format terkait */}
       <section className="mb-14">
         <h2 className="text-xl font-semibold mb-2" style={fontDisplay}>Format BAST & Surat Perubahan Data</h2>
-        <p className="text-sm mb-5" style={{ color: c.inkSoft }}>Tersedia di SharePoint lewat submenu Format Dokumen — pilih sesuai jenis rekening satker.</p>
+        <p className="text-sm mb-5" style={{ color: c.inkSoft }}>Tersedia di SharePoint melalui submenu Format Dokumen — pilih sesuai jenis rekening satker.</p>
         <div className="flex gap-3 flex-wrap">
           <DocJumpButton onClick={onGoToFormatGiro} label="Format Dokumen — Rekening Giro" />
           <DocJumpButton onClick={onGoToFormatVirtual} label="Format Dokumen — Rekening Virtual" />
@@ -3556,7 +3621,7 @@ function KKPMutasiTab({ onGoToFormatKKP }) {
         <h2 className="text-xl font-semibold mb-4" style={fontDisplay}>Kapan Ini Berlaku?</h2>
         <p className="text-sm mb-3" style={{ color: c.inkSoft }}>
           Setiap kali seorang pemegang kartu KKP atau Admin KKP mutasi, pensiun, meninggal dunia, atau cuti di
-          luar tanggungan negara, statusnya di satker harus segera diperbarui — bukan cuma dibiarkan sampai ada
+          luar tanggungan negara, statusnya di satker harus segera diperbarui — bukan hanya dibiarkan sampai ada
           yang sadar belakangan.
         </p>
         <p className="text-sm" style={{ color: c.inkSoft }}>
@@ -3600,9 +3665,9 @@ function KKPMutasiTab({ onGoToFormatKKP }) {
             <p className="text-sm font-semibold mb-3">Pemegang Kartu Berganti</p>
             <ol className="flex flex-col gap-2.5">
               {[
-                <>Setelah SK berlaku dan nama lama tidak lagi tercantum, Admin KKP menutup kartu lama ke bank penerbit lewat Surat Permohonan Penutupan KKP. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQCSnEPYDl1VQan7V0m7FDu6AYYRUdGTG3wTZ3XlM4Edr24?e=MwupbZ" tone="dark">Buka format Surat Penutupan</InlineDocLink></>,
-                <>Untuk pemegang baru, Admin KKP mengajukan kartu baru ke bank penerbit lewat Surat Permohonan Penerbitan KKP yang sama seperti pengajuan kartu pertama kali. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQC_BXcsqniRSJrkp4DF8wDAAQC4U5G2sQ9tBtUbA9NwJSI?e=rfYRDH" tone="dark">Buka format Surat Penerbitan</InlineDocLink></>,
-                <>Dokumentasikan serah terima kartu fisik lewat BAST KKP antara KPA dengan pemegang baru. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQATXP00XcMiQp4H_trU7dXFAXivMWsCJhfuX-wf841CDAQ?e=nbMGKx" tone="dark">Buka format BAST</InlineDocLink></>,
+                <>Setelah SK berlaku dan nama lama tidak lagi tercantum, Admin KKP menutup kartu lama ke bank penerbit melalui Surat Permohonan Penutupan KKP. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQCSnEPYDl1VQan7V0m7FDu6AYYRUdGTG3wTZ3XlM4Edr24?e=MwupbZ" tone="dark">Buka format Surat Penutupan</InlineDocLink></>,
+                <>Untuk pemegang baru, Admin KKP mengajukan kartu baru ke bank penerbit melalui Surat Permohonan Penerbitan KKP yang sama seperti pengajuan kartu pertama kali. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQC_BXcsqniRSJrkp4DF8wDAAQC4U5G2sQ9tBtUbA9NwJSI?e=rfYRDH" tone="dark">Buka format Surat Penerbitan</InlineDocLink></>,
+                <>Dokumentasikan serah terima kartu fisik melalui BAST antara KPA dengan pemegang baru, <strong style={{ color: c.ink }}>ditandatangani bersamaan dengan Surat Perjanjian Penggunaan KKP</strong> — dua dokumen ini wajib ditandatangani di momen yang sama, bukan menyusul belakangan. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQATXP00XcMiQp4H_trU7dXFAXivMWsCJhfuX-wf841CDAQ?e=nbMGKx" tone="dark">Buka format BAST</InlineDocLink> · <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQD4gVX71fIhS4klshC6OHvqAQnT61X8sSg9dJRUpIB1a3k?e=FrdoOo" tone="dark">Surat Perjanjian (BO)</InlineDocLink> · <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQClgXAhnam7SpDTL-FPqdF3AaiHecwwc4gjaKX7uG4BLVE?e=Ysi2bq" tone="dark">Surat Perjanjian (PD)</InlineDocLink></>,
               ].map((t, i) => (
                 <li key={i} className="text-sm flex gap-3" style={{ color: c.inkSoft }}>
                   <span style={{ color: c.maroon, flexShrink: 0 }}>{i + 1}.</span>
@@ -3622,7 +3687,7 @@ function KKPMutasiTab({ onGoToFormatKKP }) {
             <ol className="flex flex-col gap-2.5">
               {[
                 "SK ditandatangani KPA — Admin KKP yang sah langsung berpindah mengikuti SK terbaru.",
-                "Satker memberitahukan pergantian ini ke bank penerbit sebagai kontak pengurus KKP — bisa lewat surat maupun cara informal, sesuai prosedur masing-masing bank. Tidak ada permohonan tarik/terbit kartu, karena tidak ada kartu yang berpindah tangan.",
+                "Satker memberitahukan pergantian ini ke bank penerbit sebagai kontak pengurus KKP — dapat dilakukan melalui surat maupun sarana komunikasi lain, sesuai prosedur masing-masing bank. Tidak terdapat permohonan penutupan/penerbitan kartu, karena tidak ada kartu yang berpindah tangan.",
               ].map((t, i) => (
                 <li key={i} className="text-sm flex gap-3" style={{ color: c.inkSoft }}>
                   <span style={{ color: c.maroon, flexShrink: 0 }}>{i + 1}.</span>
@@ -3636,11 +3701,11 @@ function KKPMutasiTab({ onGoToFormatKKP }) {
 
       {/* Onboarding checklist */}
       <section className="mb-14">
-        <h2 className="text-xl font-semibold mb-6" style={fontDisplay}>Things to Do untuk Pemegang/Admin KKP Baru</h2>
+        <h2 className="text-xl font-semibold mb-6" style={fontDisplay}>Langkah yang Perlu Dilakukan Pemegang/Admin KKP Baru</h2>
         <div className="flex flex-col">
           {[
             ["Pastikan nama sudah masuk SK", "Cek dengan Admin KKP/KPA bahwa SK sudah ditandatangani dan nama sudah tercantum sebelum mulai bertugas."],
-            ["Terima serah terima kartu (khusus pemegang kartu)", <>Cek nomor kartu, jenis kartu (KKP-BO/KKP-PD), dan limit yang berlaku lewat BAST Kartu KKP. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQATXP00XcMiQp4H_trU7dXFAXivMWsCJhfuX-wf841CDAQ?e=nbMGKx" tone="dark">Buka format BAST</InlineDocLink></>],
+            ["Terima serah terima kartu (khusus pemegang kartu)", <>Cek nomor kartu, jenis kartu (KKP-BO/KKP-PD), dan limit yang berlaku melalui BAST Kartu KKP. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQATXP00XcMiQp4H_trU7dXFAXivMWsCJhfuX-wf841CDAQ?e=nbMGKx" tone="dark">Buka format BAST</InlineDocLink></>],
             ["Kenali batas transaksi", "Pahami limit per rekanan dan kanal transaksi (EDC/e-Katalog/DIGIPay) sebelum mulai bertransaksi."],
             ["Simpan salinan SK", "Simpan salinan SK terbaru sebagai bukti kewenangan yang sah."],
           ].map(([t, d], i) => (
@@ -3658,7 +3723,7 @@ function KKPMutasiTab({ onGoToFormatKKP }) {
       {/* Format terkait */}
       <section className="mb-14">
         <h2 className="text-xl font-semibold mb-2" style={fontDisplay}>Format SK & BAST Kartu KKP</h2>
-        <p className="text-sm mb-5" style={{ color: c.inkSoft }}>Tersedia di SharePoint lewat submenu Format Dokumen KKP.</p>
+        <p className="text-sm mb-5" style={{ color: c.inkSoft }}>Tersedia di SharePoint melalui submenu Format Dokumen KKP.</p>
         <div className="flex gap-3 flex-wrap">
           <DocJumpButton onClick={onGoToFormatKKP} label="Format Dokumen — Kartu Kredit" />
         </div>
@@ -3669,7 +3734,7 @@ function KKPMutasiTab({ onGoToFormatKKP }) {
         <div className="flex gap-4 p-6" style={{ background: c.paperDim, border: `1px solid ${c.maroon}` }}>
           <span className="text-base leading-none flex-shrink-0" style={{ color: c.maroon }}>ℹ</span>
           <p className="text-sm" style={{ color: c.ink }}>
-            Jangan tunda perubahan SK menunggu momen yang "pas". Kartu yang tertinggal pada pemegang yang sudah
+            Perubahan SK agar tidak ditunda. Kartu yang tertinggal pada pemegang yang telah
             tidak aktif adalah risiko kepatuhan, bukan sekadar urusan administratif yang bisa ditunda.
           </p>
         </div>
@@ -3803,7 +3868,7 @@ export default function RekeningKKPSite() {
             ))}
           </nav>
 
-          {/* Tombol hamburger — cuma muncul di layar sempit */}
+          {/* Tombol hamburger — hanya muncul di layar sempit */}
           <button
             onClick={() => setMobileMenuOpen((v) => !v)}
             className="md:hidden flex items-center justify-center flex-shrink-0"
