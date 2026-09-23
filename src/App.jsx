@@ -2084,24 +2084,25 @@ function OperasionalKKPContent({ onBack, onGoToFormat }) {
 const jenisPerubahanKKP = [
   {
     id: "mutasi",
-    badge: "NON-PMK · INTERNAL",
+    badge: "PMK-196",
     title: "Perubahan Pemegang Kartu",
-    summary: "Wajib melalui siklus SK dulu — kartu tidak bisa ditarik sebelum pemegang dihapus dari SK aktif.",
+    summary: "Kartu ditarik dan ditutup terlebih dahulu; penerbitan kartu baru dilakukan apabila diperlukan.",
     steps: [
-      <>Admin KKP menyusun SK/KEP pembaruan — menghapus pemegang lama dan/atau menambahkan pemegang baru — lalu mengajukannya untuk ditandatangani KPA. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQA-Uli8vHvCTqydFy2bO1lvAbry7Uw8t-3N5feQwD7rIus?e=iPCBOA" tone="dark">Buka format SK Perubahan</InlineDocLink></>,
-      "KPA meninjau dan menyetujui, lalu menandatangani SK baru tersebut sehingga berlaku aktif.",
-      <>Setelah pemegang lama tidak lagi tercantum pada SK yang berlaku, <strong style={{ color: c.ink }}>barulah</strong> Admin KKP dapat mengajukan penutupan kartu lama ke bank penerbit melalui Surat Permohonan Penutupan KKP — kartu tidak dapat ditutup selama pemegangnya masih tercantum pada SK aktif. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQCSnEPYDl1VQan7V0m7FDu6AYYRUdGTG3wTZ3XlM4Edr24?e=MwupbZ" tone="dark">Buka format Surat Penutupan</InlineDocLink></>,
-      <>Untuk pemegang baru, satker mengajukan kartu baru ke bank penerbit melalui Surat Permohonan Penerbitan KKP yang sama seperti pengajuan kartu pertama kali — tidak ada surat 'penggantian pemegang' yang terpisah. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQC_BXcsqniRSJrkp4DF8wDAAQC4U5G2sQ9tBtUbA9NwJSI?e=rfYRDH" tone="dark">Buka format Surat Penerbitan</InlineDocLink></>,
-      <>Sebagai praktik baik, dokumentasikan juga serah terima kartu fisik antar pemegang melalui Berita Acara Serah Terima (BAST) Kartu KKP. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQATXP00XcMiQp4H_trU7dXFAXivMWsCJhfuX-wf841CDAQ?e=nbMGKx" tone="dark">Buka format BAST</InlineDocLink></>,
+      "Pastikan tidak terdapat tunggakan pembayaran KKP. Apabila masih terdapat tagihan, agar segera dilakukan pelunasan.",
+      <>KPA melakukan penarikan KKP dari pemegang yang mutasi dan menyampaikan Surat Penarikan KKP kepada Bank Penerbit KKP, dengan tembusan kepada pemegang yang bersangkutan. Berdasarkan surat tersebut, Bank Penerbit KKP melakukan penutupan kartu. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQCSnEPYDl1VQan7V0m7FDu6AYYRUdGTG3wTZ3XlM4Edr24?e=MwupbZ" tone="dark">Buka format Surat Penarikan</InlineDocLink></>,
+      "Dokumen pendukung penutupan disesuaikan dengan ketentuan atau permintaan masing-masing Bank Penerbit KKP.",
+      <>Satker memperbarui KEP tentang Daftar Pemegang KKP dan Daftar Administrator KKP. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQA-Uli8vHvCTqydFy2bO1lvAbry7Uw8t-3N5feQwD7rIus?e=iPCBOA" tone="dark">Buka format KEP Perubahan</InlineDocLink></>,
+      <>Apabila satker akan menerbitkan KKP baru, satker mengajukan Surat Permohonan Penerbitan KKP, dilampiri Surat Referensi, sesuai KEP yang baru. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQC_BXcsqniRSJrkp4DF8wDAAQC4U5G2sQ9tBtUbA9NwJSI?e=rfYRDH" tone="dark">Buka format Surat Penerbitan</InlineDocLink></>,
+      <>Setelah kartu baru terbit, KPA dan pemegang baru menandatangani BAST KKP bersamaan dengan Surat Perjanjian Penggunaan KKP. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQATXP00XcMiQp4H_trU7dXFAXivMWsCJhfuX-wf841CDAQ?e=nbMGKx" tone="dark">Buka format BAST</InlineDocLink></>,
     ],
     superHighlight:
-      "Segera proses perubahan SK dan penarikan kartu begitu pemegang mutasi, pensiun, meninggal dunia, atau cuti di luar tanggungan negara — penundaan berisiko membuat kartu tetap aktif tanpa pemegang yang sah (dormant).",
+      "Penarikan KKP agar segera dilakukan begitu pemegang mutasi, pensiun, meninggal dunia, atau cuti di luar tanggungan negara — penundaan berisiko membuat kartu tetap aktif tanpa pemegang yang sah (dormant).",
   },
   {
     id: "admin",
     badge: "NON-PMK · INTERNAL",
     title: "Perubahan Admin KKP",
-    summary: "Lewat siklus SK dulu, baru diberitahukan ke bank — tidak sampai proses tarik/terbit kartu.",
+    summary: "Melalui pembaruan KEP, kemudian diberitahukan kepada Bank Penerbit KKP — tanpa proses penarikan atau penerbitan kartu.",
     steps: [
       <>Admin KKP menyusun SK/KEP pembaruan — menghapus Admin KKP lama dan/atau menambahkan Admin KKP baru — lalu mengajukannya untuk ditandatangani KPA. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQA-Uli8vHvCTqydFy2bO1lvAbry7Uw8t-3N5feQwD7rIus?e=iPCBOA" tone="dark">Buka format SK Perubahan</InlineDocLink></>,
       "KPA meninjau dan menandatangani SK baru tersebut sehingga berlaku aktif.",
@@ -2128,7 +2129,7 @@ const jenisPerubahanKKP = [
     title: "Kartu Hilang atau Rusak",
     summary: "Ditutup melalui Surat Permohonan Penutupan, lalu diajukan ulang melalui Surat Permohonan Penerbitan.",
     steps: [
-      <>Satker segera mengajukan Surat Permohonan Penutupan KKP ke bank penerbit begitu kartu diketahui hilang atau rusak, dilampiri surat kehilangan untuk kartu yang hilang. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQCSnEPYDl1VQan7V0m7FDu6AYYRUdGTG3wTZ3XlM4Edr24?e=MwupbZ" tone="dark">Buka format Surat Penutupan</InlineDocLink></>,
+      <>Satker segera mengajukan surat permohonan penutupan KKP (menggunakan format Surat Penarikan KKP) ke bank penerbit begitu kartu diketahui hilang atau rusak, dilampiri surat kehilangan untuk kartu yang hilang. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQCSnEPYDl1VQan7V0m7FDu6AYYRUdGTG3wTZ3XlM4Edr24?e=MwupbZ" tone="dark">Buka format Surat Penutupan</InlineDocLink></>,
       <>Setelah kartu ditutup, Admin KKP mengajukan kartu pengganti ke bank penerbit melalui Surat Permohonan Penerbitan KKP yang sama seperti pengajuan kartu baru — karena pemegangnya tetap sama, proses ini tidak perlu melalui siklus perubahan SK. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQC_BXcsqniRSJrkp4DF8wDAAQC4U5G2sQ9tBtUbA9NwJSI?e=rfYRDH" tone="dark">Buka format Surat Penerbitan</InlineDocLink></>,
       "Catat kejadian ini pada dokumentasi internal satker sebagai kelengkapan arsip.",
     ],
@@ -2157,8 +2158,7 @@ function PerubahanKKPContent({ onBack, onOpenMutasiDetail, onGoToFormat }) {
       <div className="flex gap-4 p-5 mb-10" style={{ background: c.paperDim, border: `1px solid ${c.maroon}` }}>
         <span className="text-base leading-none flex-shrink-0" style={{ color: c.maroon }}>ℹ</span>
         <p className="text-sm" style={{ color: c.ink }}>
-          Prinsip dasar yang perlu diingat: <strong>SK lebih dulu, baru kartu.</strong> Penarikan atau penggantian
-          pemegang kartu selalu diawali dari perubahan SK yang disetujui KPA — bukan langsung ke bank penerbit.
+          Prinsip dasar yang perlu diingat: <strong>kartu milik pemegang yang mutasi wajib ditarik dan ditutup.</strong> Penerbitan kartu baru merupakan langkah terpisah yang dilakukan apabila diperlukan, didahului dengan penetapan KEP baru.
         </p>
       </div>
 
@@ -2198,7 +2198,7 @@ const kategoriDokumenKKP = [
     label: "Perubahan & Penutupan",
     docs: [
       { nama: "Format SK Perubahan Pemegang/Admin KKP", badge: "NON-PMK", href: "https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQA-Uli8vHvCTqydFy2bO1lvAbry7Uw8t-3N5feQwD7rIus?e=iPCBOA" },
-      { nama: "Surat Permohonan Penutupan KKP (dilampiri Surat Referensi)", badge: "NON-PMK", href: "https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQCSnEPYDl1VQan7V0m7FDu6AYYRUdGTG3wTZ3XlM4Edr24?e=MwupbZ" },
+      { nama: "Surat Penarikan KKP (Permohonan Penutupan, dilampiri Surat Referensi)", badge: "NON-PMK", href: "https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQCSnEPYDl1VQan7V0m7FDu6AYYRUdGTG3wTZ3XlM4Edr24?e=MwupbZ" },
     ],
   },
 ];
@@ -2254,16 +2254,16 @@ function HomeContent({ onNavigate, onNavigateIsu }) {
   return (
     <div className="max-w-6xl mx-auto px-7 py-16">
       {/* ===== HERO: kerahasiaan + WA grup (kiri) | urgent + isu terkini (kanan, bertumpuk) ===== */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-px mb-6" style={{ background: c.line, border: `1px solid ${c.line}` }}>
-        <div className="p-8 sm:p-10" style={{ background: c.navy }}>
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-8" style={{ ...fontDisplay, color: c.paper, letterSpacing: "-0.01em" }}>
+      <div className="grid grid-cols-1 sm:grid-cols-2 gap-px mb-6" style={{ background: c.line, border: `1px solid ${c.line}` }}>
+        <div className="p-6 lg:p-10" style={{ background: c.navy }}>
+          <h2 className="text-2xl lg:text-3xl font-semibold mb-8" style={{ ...fontDisplay, color: c.paper, letterSpacing: "-0.01em" }}>
             Kerahasiaan data rekening satker wajib dijaga.
           </h2>
 
           <p className="text-xs uppercase mb-4" style={{ ...fontMono, color: c.gold, letterSpacing: "0.12em" }}>
             WhatsApp Grup Rekening
           </p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-3 mb-8">
             {waGrupRekening.map((g, i) => (
               <a
                 key={i}
@@ -2292,10 +2292,10 @@ function HomeContent({ onNavigate, onNavigateIsu }) {
         </div>
 
         <div className="flex flex-col gap-px">
-          <div className="p-8 flex-1 flex flex-col justify-between" style={{ background: c.maroon }}>
+          <div className="p-6 lg:p-8 flex-1 flex flex-col justify-between" style={{ background: c.maroon }}>
             <div>
               <p className="text-xs uppercase mb-3" style={{ ...fontMono, color: c.goldBright, letterSpacing: "0.12em" }}>
-                Tindakan Urgent Terkini
+                Tindakan Penting Terkini
               </p>
               <h3 className="text-lg sm:text-xl font-semibold mb-3" style={{ ...fontDisplay, color: c.paper, letterSpacing: "-0.01em" }}>
                 [PENTING] Prosedur Serah Terima Rekening &amp; KKP sehubungan Mutasi
@@ -2313,7 +2313,7 @@ function HomeContent({ onNavigate, onNavigateIsu }) {
             </button>
           </div>
 
-          <div className="p-8 flex-1 flex flex-col justify-between" style={{ background: c.navy }}>
+          <div className="p-6 lg:p-8 flex-1 flex flex-col justify-between" style={{ background: c.navy }}>
             <div>
               <p className="text-xs uppercase mb-3" style={{ ...fontMono, color: c.gold, letterSpacing: "0.12em" }}>
                 Isu Rekening Terkini
@@ -2776,7 +2776,7 @@ function FAQVirtualList({ onOpenMutasiDetail }) {
                 ["Dasar hukum", "PMK-182/PMK.05/2017 — pembukaan s.d. penutupan", "PMK-183/PMK.05/2019 — pembukaan & penutupan (pengoperasian relatif sama dengan PMK-182)"],
                 ["Data rekening", "Terpisah-pisah, kantor pusat DJP tidak dapat memonitor", "Terkonsolidasi dan tersambung melalui kanal Dashboard"],
                 ["Pengambilan uang", "Cek/bilyet giro. Internet banking bisa digunakan sebagaimana mestinya", "Surat pendebitan (SPPR). Internet banking digunakan berdampingan dengan Dashboard"],
-                ["Penyelesaian kendala", "Lewat cabang padanan masing-masing", "Bisa di cabang, grup WhatsApp Satker–KPDJP–Bank, atau channel khusus bank"],
+                ["Penyelesaian kendala", "Melalui cabang padanan masing-masing", "Dapat melalui cabang, grup WhatsApp Satker–KPDJP–Bank, atau kanal khusus bank"],
               ].map((row, i) => (
                 <tr key={i}>
                   <td className="p-4 text-xs font-semibold align-top" style={{ ...fontMono, color: c.inkSoft, borderBottom: i < 4 ? `1px solid ${c.line}` : "none" }}>{row[0]}</td>
@@ -3155,7 +3155,7 @@ function FAQKKPList({ onOpenMutasiDetail }) {
       <FAQItem question="Penanganan Kartu KKP Hilang atau Rusak">
         <ol className="flex flex-col gap-3">
           {[
-            "Segera ajukan Surat Permohonan Penutupan KKP ke bank penerbit, dilampiri surat kehilangan untuk kartu yang hilang.",
+            "Segera ajukan surat permohonan penutupan KKP (menggunakan format Surat Penarikan KKP) ke bank penerbit, dilampiri surat kehilangan untuk kartu yang hilang.",
             "Setelah kartu ditutup, Admin KKP mengajukan kartu pengganti melalui Surat Permohonan Penerbitan KKP yang sama seperti pengajuan kartu baru — karena pemegangnya tetap sama, tidak perlu melalui siklus perubahan SK.",
             "Catat kejadian ini pada dokumentasi internal satker.",
           ].map((t, i) => (
@@ -3169,7 +3169,7 @@ function FAQKKPList({ onOpenMutasiDetail }) {
 
       <FAQItem question="Prosedur saat Terjadi Mutasi Pemegang Kartu atau Admin KKP">
         <p className="text-sm mb-5" style={{ color: c.inkSoft }}>
-          Secara ringkas: SK diperbarui terlebih dahulu melalui persetujuan KPA, kemudian kartu dapat ditutup/diterbitkan ke bank apabila pemegang kartu yang berubah. Apabila hanya Admin KKP yang berubah, bank cukup diberikan pemberitahuan sebagai pemutakhiran data kontak.
+          Secara ringkas: apabila pemegang KKP mutasi, KPA wajib menarik kartu dan menyampaikan Surat Penarikan KKP kepada Bank Penerbit KKP sebagai dasar penutupan, setelah memastikan tidak terdapat tunggakan pembayaran. Apabila satker akan menerbitkan kartu baru, satker menetapkan KEP baru terlebih dahulu, kemudian mengajukan permohonan penerbitan sesuai KEP tersebut. Apabila hanya Admin KKP yang berubah, satker memperbarui KEP dan memberitahukannya kepada Bank Penerbit KKP.
         </p>
         {onOpenMutasiDetail && (
           <button
@@ -3180,6 +3180,14 @@ function FAQKKPList({ onOpenMutasiDetail }) {
             Lihat Panduan Lengkap
           </button>
         )}
+      </FAQItem>
+
+      <FAQItem question="Ketentuan apabila KPA Mengalami Mutasi">
+        <p className="text-sm" style={{ color: c.inkSoft }}>
+          Dalam hal pejabat yang mutasi merupakan KPA, proses administrasi penutupan KKP serta pembaruan KEP
+          pemegang dan Admin KKP dilaksanakan oleh pejabat baru yang menduduki jabatan KPA. Pelaksanaannya
+          mengikuti prosedur penarikan kartu dan/atau pembaruan KEP sesuai kondisi di satker.
+        </p>
       </FAQItem>
 
       <FAQItem question="Pengertian dan Risiko Kartu Dormant">
@@ -3605,125 +3613,141 @@ function RekeningMutasiTab({ onGoToFormatGiro, onGoToFormatVirtual, onGoToBantua
   );
 }
 
+const SP = "https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/";
+const kkpDocs = {
+  kepPerubahan: SP + "IQA-Uli8vHvCTqydFy2bO1lvAbry7Uw8t-3N5feQwD7rIus?e=iPCBOA",
+  penarikan: SP + "IQCSnEPYDl1VQan7V0m7FDu6AYYRUdGTG3wTZ3XlM4Edr24?e=MwupbZ",
+  penerbitan: SP + "IQC_BXcsqniRSJrkp4DF8wDAAQC4U5G2sQ9tBtUbA9NwJSI?e=rfYRDH",
+  bast: SP + "IQATXP00XcMiQp4H_trU7dXFAXivMWsCJhfuX-wf841CDAQ?e=nbMGKx",
+  spkpBO: SP + "IQD4gVX71fIhS4klshC6OHvqAQnT61X8sSg9dJRUpIB1a3k?e=FrdoOo",
+  spkpPD: SP + "IQClgXAhnam7SpDTL-FPqdF3AaiHecwwc4gjaKX7uG4BLVE?e=Ysi2bq",
+};
+
+function ScenarioCard({ code, tone, title, steps, note }) {
+  return (
+    <div className="p-6" style={{ background: c.paper }}>
+      <span
+        className="inline-block text-[10px] px-2 py-1 mb-3"
+        style={{ ...fontMono, color: c.paper, background: tone === "maroon" ? c.maroon : c.navy, letterSpacing: "0.06em" }}
+      >
+        SKENARIO {code}
+      </span>
+      <p className="text-sm font-semibold mb-3">{title}</p>
+      <ol className="flex flex-col gap-2.5">
+        {steps.map((t, i) => (
+          <li key={i} className="text-sm flex gap-3" style={{ color: c.inkSoft }}>
+            <span style={{ color: c.maroon, flexShrink: 0 }}>{i + 1}.</span>
+            <span>{t}</span>
+          </li>
+        ))}
+      </ol>
+      {note && (
+        <p className="text-xs mt-4 pt-3" style={{ color: c.inkSoft, borderTop: `1px dashed ${c.line}` }}>
+          {note}
+        </p>
+      )}
+    </div>
+  );
+}
+
 function KKPMutasiTab({ onGoToFormatKKP }) {
   return (
     <>
       <div className="flex gap-4 p-5 mb-12" style={{ background: c.maroon, boxShadow: `0 0 0 3px ${c.gold}` }}>
         <span className="text-lg leading-none flex-shrink-0" style={{ color: c.goldBright }}>★</span>
         <p className="text-sm font-semibold" style={{ color: c.paper }}>
-          Satker WAJIB memperbarui SK setiap kali pemegang kartu atau Admin KKP berganti — kartu yang dibiarkan
-          aktif tanpa pemegang yang sah berisiko jadi kartu dormant.
+          Dalam hal pemegang KKP mengalami mutasi, satker WAJIB melakukan penarikan KKP dari pemegang yang
+          bersangkutan. Kartu yang tertinggal pada pemegang yang telah tidak bertugas berisiko menjadi kartu dormant.
         </p>
       </div>
 
       {/* Kapan berlaku */}
       <section className="mb-14">
         <h2 className="text-xl font-semibold mb-4" style={fontDisplay}>Kapan Ini Berlaku?</h2>
-        <p className="text-sm mb-3" style={{ color: c.inkSoft }}>
-          Setiap kali seorang pemegang kartu KKP atau Admin KKP mutasi, pensiun, meninggal dunia, atau cuti di
-          luar tanggungan negara, statusnya di satker harus segera diperbarui — bukan hanya dibiarkan sampai ada
-          yang sadar belakangan.
-        </p>
         <p className="text-sm" style={{ color: c.inkSoft }}>
-          Ada dua skenario yang perlu dibedakan, karena konsekuensinya beda:
+          Ketentuan ini berlaku apabila pemegang KKP, Admin KKP, dan/atau KPA mengalami mutasi atau pindah tempat
+          tugas, termasuk kondisi lain yang menyebabkan yang bersangkutan tidak lagi bertugas pada satker, seperti
+          pensiun, meninggal dunia, atau cuti di luar tanggungan negara.
         </p>
       </section>
 
-      {/* Dua skenario */}
+      {/* Ringkasan */}
       <section className="mb-14">
-        <h2 className="text-xl font-semibold mb-6" style={fontDisplay}>Titik Awal yang Sama: SK KPA</h2>
+        <h2 className="text-xl font-semibold mb-6" style={fontDisplay}>Ringkasan</h2>
+        <div className="p-6" style={{ background: c.navy }}>
+          <ol className="flex flex-col gap-3">
+            {[
+              "Dalam hal terdapat penggantian pemegang KKP sehubungan dengan mutasi, satker wajib melakukan penarikan KKP dari pemegang yang bersangkutan.",
+              "KPA menyampaikan Surat Penarikan KKP kepada Bank Penerbit KKP sebagai dasar penutupan kartu.",
+              "Dalam hal satker akan menerbitkan KKP baru, satker wajib (a) menetapkan KEP baru tentang pemegang dan Admin KKP, dan (b) mengajukan permohonan penerbitan kepada Bank Penerbit KKP sesuai KEP tersebut.",
+              "Setelah kartu baru terbit, satker mengadministrasikan KKP sesuai PMK-196/PMK.05/2018 sebagaimana telah diubah dengan PMK-97/PMK.05/2021.",
+            ].map((t, i) => (
+              <li key={i} className="text-sm flex gap-3" style={{ color: "#D9DEE8" }}>
+                <span style={{ color: c.goldBright, flexShrink: 0 }}>{i + 1}.</span>
+                <span>{t}</span>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
+      {/* Rincian per skenario */}
+      <section className="mb-14">
+        <h2 className="text-xl font-semibold mb-2" style={fontDisplay}>Rincian Prosedur</h2>
         <p className="text-sm mb-6" style={{ color: c.inkSoft }}>
-          Baik pemegang kartu maupun Admin KKP yang berganti, prosesnya selalu dimulai dari SK — bukan langsung
-          ke bank atau langsung serah terima akses.
+          Pilih skenario sesuai kondisi di satker. Apabila satu pejabat merangkap beberapa peran (misalnya Admin KKP
+          sekaligus pemegang KKP), seluruh skenario yang relevan dilaksanakan.
         </p>
-        <div className="flex flex-col gap-4 mb-10">
-          <div className="p-6" style={{ background: c.navy }}>
-            <p className="text-xs uppercase mb-3" style={{ ...fontMono, color: c.gold, letterSpacing: "0.1em" }}>Langkah Awal — Berlaku untuk Keduanya</p>
-            <ol className="flex flex-col gap-3">
-              {[
-                <>Admin KKP menyusun SK/KEP pembaruan — menghapus nama yang lama, menambahkan yang baru. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQA-Uli8vHvCTqydFy2bO1lvAbry7Uw8t-3N5feQwD7rIus?e=iPCBOA" tone="light">Buka format SK Perubahan</InlineDocLink></>,
-                "SK diajukan untuk ditandatangani KPA.",
-                "KPA meninjau dan menandatangani SK tersebut sehingga berlaku aktif.",
-              ].map((t, i) => (
-                <li key={i} className="text-sm flex gap-3" style={{ color: "#D9DEE8" }}>
-                  <span style={{ color: c.goldBright, flexShrink: 0 }}>{i + 1}.</span>
-                  <span>{t}</span>
-                </li>
-              ))}
-            </ol>
-          </div>
-        </div>
-
         <div className="grid grid-cols-1 md:grid-cols-2 gap-px" style={{ background: c.line, border: `1px solid ${c.line}` }}>
-          <div className="p-6" style={{ background: c.paper }}>
-            <span
-              className="inline-block text-[10px] px-2 py-1 mb-3"
-              style={{ ...fontMono, color: c.paper, background: c.maroon, letterSpacing: "0.06em" }}
-            >
-              SKENARIO A
-            </span>
-            <p className="text-sm font-semibold mb-3">Pemegang Kartu Berganti</p>
-            <ol className="flex flex-col gap-2.5">
-              {[
-                <>Setelah SK berlaku dan nama lama tidak lagi tercantum, Admin KKP menutup kartu lama ke bank penerbit melalui Surat Permohonan Penutupan KKP. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQCSnEPYDl1VQan7V0m7FDu6AYYRUdGTG3wTZ3XlM4Edr24?e=MwupbZ" tone="dark">Buka format Surat Penutupan</InlineDocLink></>,
-                <>Untuk pemegang baru, Admin KKP mengajukan kartu baru ke bank penerbit melalui Surat Permohonan Penerbitan KKP yang sama seperti pengajuan kartu pertama kali. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQC_BXcsqniRSJrkp4DF8wDAAQC4U5G2sQ9tBtUbA9NwJSI?e=rfYRDH" tone="dark">Buka format Surat Penerbitan</InlineDocLink></>,
-                <>Dokumentasikan serah terima kartu fisik melalui BAST antara KPA dengan pemegang baru, <strong style={{ color: c.ink }}>ditandatangani bersamaan dengan Surat Perjanjian Penggunaan KKP</strong> — dua dokumen ini wajib ditandatangani di momen yang sama, bukan menyusul belakangan. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQATXP00XcMiQp4H_trU7dXFAXivMWsCJhfuX-wf841CDAQ?e=nbMGKx" tone="dark">Buka format BAST</InlineDocLink> · <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQD4gVX71fIhS4klshC6OHvqAQnT61X8sSg9dJRUpIB1a3k?e=FrdoOo" tone="dark">Surat Perjanjian (BO)</InlineDocLink> · <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQClgXAhnam7SpDTL-FPqdF3AaiHecwwc4gjaKX7uG4BLVE?e=Ysi2bq" tone="dark">Surat Perjanjian (PD)</InlineDocLink></>,
-              ].map((t, i) => (
-                <li key={i} className="text-sm flex gap-3" style={{ color: c.inkSoft }}>
-                  <span style={{ color: c.maroon, flexShrink: 0 }}>{i + 1}.</span>
-                  <span>{t}</span>
-                </li>
-              ))}
-            </ol>
-          </div>
-          <div className="p-6" style={{ background: c.paper }}>
-            <span
-              className="inline-block text-[10px] px-2 py-1 mb-3"
-              style={{ ...fontMono, color: c.paper, background: c.navy, letterSpacing: "0.06em" }}
-            >
-              SKENARIO B
-            </span>
-            <p className="text-sm font-semibold mb-3">Admin KKP Berganti</p>
-            <ol className="flex flex-col gap-2.5">
-              {[
-                "SK ditandatangani KPA — Admin KKP yang sah langsung berpindah mengikuti SK terbaru.",
-                "Satker memberitahukan pergantian ini ke bank penerbit sebagai kontak pengurus KKP — dapat dilakukan melalui surat maupun sarana komunikasi lain, sesuai prosedur masing-masing bank. Tidak terdapat permohonan penutupan/penerbitan kartu, karena tidak ada kartu yang berpindah tangan.",
-              ].map((t, i) => (
-                <li key={i} className="text-sm flex gap-3" style={{ color: c.inkSoft }}>
-                  <span style={{ color: c.maroon, flexShrink: 0 }}>{i + 1}.</span>
-                  <span>{t}</span>
-                </li>
-              ))}
-            </ol>
-          </div>
+          <ScenarioCard
+            code="A"
+            tone="maroon"
+            title="Pemegang KKP Mutasi — Penarikan dan Penutupan Kartu"
+            steps={[
+              "Pastikan tidak terdapat tunggakan pembayaran KKP. Apabila masih terdapat tagihan, agar segera dilakukan pelunasan.",
+              <>Mengacu pada PMK-196/PMK.05/2018, KPA melakukan penarikan KKP dari pemegang dan menerbitkan Surat Penarikan KKP. <InlineDocLink href={kkpDocs.penarikan} tone="dark">Buka format Surat Penarikan</InlineDocLink></>,
+              "Surat Penarikan KKP disampaikan oleh KPA kepada Bank Penerbit KKP, dengan tembusan kepada pemegang KKP yang bersangkutan.",
+              "Berdasarkan surat penarikan tersebut, Bank Penerbit KKP melakukan penutupan KKP.",
+              "Dokumen pendukung penutupan disesuaikan dengan ketentuan atau permintaan masing-masing Bank Penerbit KKP.",
+            ]}
+          />
+          <ScenarioCard
+            code="B"
+            tone="navy"
+            title="Admin KKP Mutasi"
+            steps={[
+              <>Satker memperbarui KEP tentang Daftar Pemegang KKP dan Daftar Administrator KKP. <InlineDocLink href={kkpDocs.kepPerubahan} tone="dark">Buka format KEP Perubahan</InlineDocLink></>,
+              "Satker memberitahukan pergantian Admin KKP kepada Bank Penerbit KKP, melalui surat maupun sarana komunikasi lain sesuai prosedur masing-masing bank.",
+            ]}
+          />
+          <ScenarioCard
+            code="C"
+            tone="navy"
+            title="KPA Mutasi"
+            steps={[
+              "Proses administrasi penutupan KKP dan pembaruan KEP pemegang dan Admin KKP dilaksanakan oleh pejabat baru yang menduduki jabatan KPA.",
+              "Pelaksanaannya mengikuti Skenario A dan/atau B sesuai kondisi di satker.",
+            ]}
+          />
+          <ScenarioCard
+            code="D"
+            tone="maroon"
+            title="Penerbitan KKP Baru (Apabila Diperlukan)"
+            steps={[
+              <>Satker menetapkan KEP baru tentang pemegang dan Admin KKP. <InlineDocLink href={kkpDocs.kepPerubahan} tone="dark">Buka format KEP Perubahan</InlineDocLink></>,
+              <>Satker mengajukan Surat Permohonan Penerbitan KKP, dilampiri Surat Referensi, kepada Bank Penerbit KKP sesuai KEP tersebut. <InlineDocLink href={kkpDocs.penerbitan} tone="dark">Buka format Surat Penerbitan</InlineDocLink></>,
+              <>Setelah kartu terbit, KPA dan pemegang KKP menandatangani BAST KKP bersamaan dengan Surat Perjanjian Penggunaan KKP. <InlineDocLink href={kkpDocs.bast} tone="dark">Buka format BAST</InlineDocLink> · <InlineDocLink href={kkpDocs.spkpBO} tone="dark">Surat Perjanjian (KKP-BO)</InlineDocLink> · <InlineDocLink href={kkpDocs.spkpPD} tone="dark">Surat Perjanjian (KKP-PD)</InlineDocLink></>,
+              "Pemegang KKP baru agar memahami limit dan kanal transaksi (EDC, e-Katalog, DIGIPay) sebelum mulai bertransaksi.",
+              "Satker mengadministrasikan KKP sesuai PMK KKP, termasuk menyimpan salinan KEP, BAST, dan Surat Perjanjian Penggunaan KKP sebagai arsip.",
+            ]}
+          />
         </div>
       </section>
 
-      {/* Onboarding checklist */}
+      {/* Daftar format */}
       <section className="mb-14">
-        <h2 className="text-xl font-semibold mb-6" style={fontDisplay}>Langkah yang Perlu Dilakukan Pemegang/Admin KKP Baru</h2>
-        <div className="flex flex-col">
-          {[
-            ["Pastikan nama sudah masuk SK", "Cek dengan Admin KKP/KPA bahwa SK sudah ditandatangani dan nama sudah tercantum sebelum mulai bertugas."],
-            ["Terima serah terima kartu (khusus pemegang kartu)", <>Cek nomor kartu, jenis kartu (KKP-BO/KKP-PD), dan limit yang berlaku melalui BAST Kartu KKP. <InlineDocLink href="https://kemenkeu-my.sharepoint.com/:w:/g/personal/ryan_wijaya_kemenkeu_go_id/IQATXP00XcMiQp4H_trU7dXFAXivMWsCJhfuX-wf841CDAQ?e=nbMGKx" tone="dark">Buka format BAST</InlineDocLink></>],
-            ["Kenali batas transaksi", "Pahami limit per rekanan dan kanal transaksi (EDC/e-Katalog/DIGIPay) sebelum mulai bertransaksi."],
-            ["Simpan salinan SK", "Simpan salinan SK terbaru sebagai bukti kewenangan yang sah."],
-          ].map(([t, d], i) => (
-            <div key={i} className="flex gap-5 p-5" style={{ borderTop: i === 0 ? `1px solid ${c.line}` : "none", borderBottom: `1px solid ${c.line}` }}>
-              <span className="flex-shrink-0 flex items-center justify-center text-sm font-semibold" style={{ width: 32, height: 32, background: c.navy, color: c.goldBright, ...fontMono }}>{i + 1}</span>
-              <div>
-                <p className="text-sm font-semibold mb-1">{t}</p>
-                <p className="text-sm" style={{ color: c.inkSoft }}>{d}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Format terkait */}
-      <section className="mb-14">
-        <h2 className="text-xl font-semibold mb-2" style={fontDisplay}>Format SK & BAST Kartu KKP</h2>
-        <p className="text-sm mb-5" style={{ color: c.inkSoft }}>Tersedia di SharePoint melalui submenu Format Dokumen KKP.</p>
+        <h2 className="text-xl font-semibold mb-2" style={fontDisplay}>Daftar Lengkap Format Dokumen KKP</h2>
+        <p className="text-sm mb-5" style={{ color: c.inkSoft }}>Seluruh format juga tersedia pada submenu Format Dokumen KKP.</p>
         <div className="flex gap-3 flex-wrap">
           <DocJumpButton onClick={onGoToFormatKKP} label="Format Dokumen — Kartu Kredit" />
         </div>
@@ -3734,8 +3758,8 @@ function KKPMutasiTab({ onGoToFormatKKP }) {
         <div className="flex gap-4 p-6" style={{ background: c.paperDim, border: `1px solid ${c.maroon}` }}>
           <span className="text-base leading-none flex-shrink-0" style={{ color: c.maroon }}>ℹ</span>
           <p className="text-sm" style={{ color: c.ink }}>
-            Perubahan SK agar tidak ditunda. Kartu yang tertinggal pada pemegang yang telah
-            tidak aktif adalah risiko kepatuhan, bukan sekadar urusan administratif yang bisa ditunda.
+            Penarikan KKP dan pembaruan KEP agar tidak ditunda. Kartu yang tertinggal pada pemegang yang telah tidak
+            bertugas merupakan risiko kepatuhan, bukan sekadar urusan administratif.
           </p>
         </div>
       </section>
