@@ -1,0 +1,676 @@
+/* ==========================================================================
+   Beranda, halaman landing jenis rekening, kartu bank (elemen khas)
+   ========================================================================== */
+
+/* ---------- Kartu bank ---------- */
+.bank-card {
+  --card-bg: var(--navy);
+  --card-fg: #f4eee2;
+  --card-sub: rgba(244, 238, 226, 0.66);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  aspect-ratio: 1.586 / 1;
+  width: 100%;
+  padding: 20px 22px;
+  border-radius: 18px;
+  color: var(--card-fg);
+  background:
+    radial-gradient(120% 90% at 100% 0%, rgba(255, 255, 255, 0.14), transparent 55%),
+    linear-gradient(135deg, color-mix(in srgb, var(--card-bg) 82%, #fff) 0%, var(--card-bg) 45%, color-mix(in srgb, var(--card-bg) 78%, #000) 100%);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.18),
+    0 18px 40px -18px rgba(8, 27, 52, 0.55);
+  text-decoration: none;
+  overflow: hidden;
+  isolation: isolate;
+}
+.bank-card::before {
+  /* guilloche halus khas kartu/buku tabungan */
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  opacity: 0.16;
+  background:
+    repeating-radial-gradient(circle at 110% 120%, transparent 0 14px, rgba(255, 255, 255, 0.5) 14px 15px);
+}
+.bank-card--virtual {
+  --card-bg: #cfa66c;
+  --card-fg: #10203a;
+  --card-sub: rgba(16, 32, 58, 0.66);
+}
+.bank-card--virtual::before {
+  background:
+    repeating-radial-gradient(circle at 110% 120%, transparent 0 14px, rgba(8, 27, 52, 0.35) 14px 15px);
+}
+.bank-card--kkp {
+  --card-bg: #7f3030;
+}
+
+.bank-card__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.bank-card__name {
+  font-weight: 750;
+  font-size: 1.02rem;
+  letter-spacing: -0.01em;
+  line-height: 1.25;
+}
+.bank-card__issuer {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--card-sub);
+  margin-top: 2px;
+}
+.bank-card__icon {
+  opacity: 0.85;
+}
+.bank-card__chip {
+  width: 42px;
+  height: 31px;
+  border-radius: 7px;
+  background:
+    linear-gradient(90deg, transparent 32%, rgba(0, 0, 0, 0.18) 32% 34%, transparent 34% 66%, rgba(0, 0, 0, 0.18) 66% 68%, transparent 68%),
+    linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.18) 45% 55%, transparent 55%),
+    linear-gradient(135deg, #f1d9a8, #c79a52 60%, #e8c88c);
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.15);
+}
+.bank-card--virtual .bank-card__chip {
+  background:
+    linear-gradient(90deg, transparent 32%, rgba(0, 0, 0, 0.2) 32% 34%, transparent 34% 66%, rgba(0, 0, 0, 0.2) 66% 68%, transparent 68%),
+    linear-gradient(180deg, transparent 45%, rgba(0, 0, 0, 0.2) 45% 55%, transparent 55%),
+    linear-gradient(135deg, #f7ead0, #e0c08a 60%, #f3e2bf);
+}
+.bank-card__bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+}
+.bank-card__code {
+  font-size: clamp(1.5rem, 3.2vw, 2rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
+.bank-card__reg {
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--card-sub);
+  margin-top: 6px;
+  letter-spacing: 0.01em;
+}
+.bank-card__go {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: rgba(255, 255, 255, 0.14);
+  transition: background 0.2s, transform 0.2s var(--ease);
+}
+.bank-card--virtual .bank-card__go {
+  background: rgba(8, 27, 52, 0.12);
+}
+a.bank-card:hover .bank-card__go {
+  transform: translateX(3px);
+  background: rgba(255, 255, 255, 0.24);
+}
+
+/* ---------- Beranda ---------- */
+.home-hero {
+  position: relative;
+  padding: 28px 0 36px;
+  overflow: hidden;
+}
+@media (min-width: 900px) {
+  .home-hero {
+    padding: 56px 0 56px;
+  }
+}
+.home-hero__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 32px;
+  align-items: center;
+}
+@media (min-width: 1100px) {
+  .home-hero__grid {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: 48px;
+  }
+}
+.home-hero__hello {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px 6px 8px;
+  border-radius: var(--r-pill);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--ink-soft);
+  margin-bottom: 18px;
+}
+.home-hero__hello svg {
+  color: var(--gold);
+}
+.home-hero__title {
+  font-size: clamp(2.1rem, 5.6vw, 3.6rem);
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1.03;
+  max-width: 14ch;
+}
+.home-hero__lead {
+  margin-top: 18px;
+  font-size: var(--fs-lg);
+  color: var(--ink-soft);
+  max-width: 48ch;
+}
+.home-search {
+  margin-top: 26px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  max-width: 520px;
+  height: 56px;
+  padding: 0 10px 0 18px;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  border: 1.5px solid var(--line-strong);
+  color: var(--ink-mute);
+  font-size: var(--fs-md);
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.home-search:hover {
+  border-color: var(--gold);
+  box-shadow: var(--shadow-md);
+}
+.home-search__label {
+  flex: 1;
+  min-width: 0;
+  text-align: left;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.home-search kbd {
+  font-family: inherit;
+  font-size: 0.72rem;
+  font-weight: 650;
+  padding: 3px 7px;
+  border-radius: 6px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  color: var(--ink-soft);
+  display: none;
+}
+@media (min-width: 640px) {
+  .home-search kbd {
+    display: inline-block;
+  }
+}
+.home-hero__chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+.chip-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: var(--r-pill);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--ink-soft);
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid var(--line);
+}
+.chip-link:hover {
+  color: var(--ink);
+  border-color: var(--line-strong);
+  background: var(--surface);
+}
+
+/* Kipas kartu */
+.card-fan {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 12px;
+}
+@media (min-width: 640px) and (max-width: 1099px) {
+  .card-fan {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .card-fan .bank-card {
+    padding: 16px;
+  }
+  .card-fan .bank-card__name {
+    font-size: 0.92rem;
+  }
+  .card-fan .bank-card__chip,
+  .card-fan .bank-card__issuer {
+    display: none;
+  }
+  .card-fan .bank-card__code {
+    font-size: 1.45rem;
+  }
+}
+@media (max-width: 639px) {
+  .card-fan {
+    grid-auto-flow: column;
+    grid-auto-columns: 82%;
+    grid-template-columns: none;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    margin-inline: -20px;
+    padding: 4px 20px 18px;
+    scrollbar-width: none;
+  }
+  .card-fan::-webkit-scrollbar {
+    display: none;
+  }
+  .card-fan .bank-card {
+    scroll-snap-align: center;
+  }
+}
+@media (min-width: 1100px) {
+  .card-fan {
+    display: block;
+    height: 430px;
+  }
+  .card-fan .bank-card {
+    position: absolute;
+    width: 360px;
+    transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
+    animation: fan-in 0.9s var(--ease) both;
+  }
+  .card-fan .bank-card:nth-child(1) {
+    left: 4%;
+    top: 0;
+    transform: rotate(-7deg);
+    z-index: 1;
+    animation-delay: 0.05s;
+  }
+  .card-fan .bank-card:nth-child(2) {
+    left: 18%;
+    top: 104px;
+    transform: rotate(-1.5deg);
+    z-index: 2;
+    animation-delay: 0.15s;
+  }
+  .card-fan .bank-card:nth-child(3) {
+    left: 32%;
+    top: 208px;
+    transform: rotate(4deg);
+    z-index: 3;
+    animation-delay: 0.25s;
+  }
+  .card-fan .bank-card:hover,
+  .card-fan .bank-card:focus-visible {
+    z-index: 5;
+    transform: rotate(0deg) translateY(-10px) scale(1.02);
+    box-shadow:
+      inset 0 1px 0 rgba(255, 255, 255, 0.2),
+      0 30px 60px -20px rgba(8, 27, 52, 0.6);
+  }
+}
+@keyframes fan-in {
+  from {
+    opacity: 0;
+    transform: translateY(40px) rotate(0deg);
+  }
+}
+
+/* Blok perlu tindakan */
+.home-section {
+  margin-top: 8px;
+  margin-bottom: 48px;
+}
+.home-section__title {
+  font-size: var(--fs-xl);
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  margin-bottom: 16px;
+}
+
+.feature-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 800px) {
+  .feature-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.feature {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 22px;
+  border-radius: var(--r-lg);
+  text-decoration: none;
+  color: #e7e2d7;
+  background: var(--navy);
+  overflow: hidden;
+  min-height: 210px;
+}
+.feature--maroon {
+  background: var(--maroon);
+  color: #f2dede;
+}
+[data-theme="dark"] .feature {
+  background: #11294b;
+}
+[data-theme="dark"] .feature--maroon {
+  background: #5e2424;
+}
+.feature__tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  align-self: flex-start;
+  padding: 4px 10px;
+  border-radius: var(--r-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: rgba(212, 175, 122, 0.18);
+  color: var(--gold-bright);
+}
+.feature__title {
+  font-size: var(--fs-xl);
+  font-weight: 750;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+  color: #fff;
+  max-width: 26ch;
+}
+.feature__desc {
+  font-size: 0.95rem;
+  max-width: 52ch;
+}
+.feature__cta {
+  margin-top: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: flex-start;
+  padding: 9px 14px;
+  border-radius: var(--r-sm);
+  font-size: var(--fs-sm);
+  font-weight: 700;
+  background: var(--gold-bright);
+  color: var(--navy-deep);
+}
+.feature:hover .feature__cta {
+  background: #dfbd8c;
+}
+.feature__bg {
+  position: absolute;
+  right: -18px;
+  bottom: -26px;
+  opacity: 0.08;
+  color: #fff;
+  pointer-events: none;
+}
+
+/* Blok kerahasiaan + grup WA */
+.secure {
+  display: grid;
+  gap: 24px;
+  grid-template-columns: minmax(0, 1fr);
+  padding: 22px;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  border: 1px solid var(--line);
+}
+@media (min-width: 900px) {
+  .secure {
+    grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+    padding: 28px;
+    gap: 36px;
+  }
+}
+.secure__icon {
+  width: 52px;
+  height: 52px;
+  border-radius: 15px;
+  display: grid;
+  place-items: center;
+  background: var(--navy);
+  color: var(--gold-bright);
+  margin-bottom: 16px;
+}
+.secure__title {
+  font-size: var(--fs-2xl);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  max-width: 18ch;
+  margin-bottom: 12px;
+}
+
+/* Jalan pintas */
+.shortcuts {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (min-width: 900px) {
+  .shortcuts {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+.shortcut {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 16px;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color 0.15s;
+}
+.shortcut:hover {
+  border-color: var(--line-strong);
+}
+.shortcut__icon {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  display: grid;
+  place-items: center;
+  background: var(--surface-2);
+  color: var(--ink-soft);
+}
+.shortcut__icon--giro {
+  background: var(--giro-soft);
+  color: var(--giro-ink);
+}
+.shortcut__icon--virtual {
+  background: var(--virtual-soft);
+  color: var(--virtual-ink);
+}
+.shortcut__icon--kkp {
+  background: var(--kkp-soft);
+  color: var(--kkp-ink);
+}
+.shortcut__title {
+  font-weight: 700;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+.shortcut__sub {
+  font-size: var(--fs-xs);
+  color: var(--ink-mute);
+  margin-top: -6px;
+}
+
+.disclaimer {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  padding: 14px 16px;
+  border-radius: var(--r-md);
+  background: var(--surface-2);
+  color: var(--ink-soft);
+  font-size: var(--fs-sm);
+}
+.disclaimer svg {
+  color: var(--ink-mute);
+  margin-top: 2px;
+}
+
+/* ---------- Landing jenis rekening ---------- */
+.landing-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 28px;
+  align-items: center;
+}
+@media (min-width: 960px) {
+  .landing-head {
+    grid-template-columns: minmax(0, 1fr) 340px;
+    gap: 48px;
+  }
+}
+.landing-head .bank-card {
+  max-width: 340px;
+  transform: rotate(-3deg);
+}
+@media (max-width: 959px) {
+  .landing-head .bank-card {
+    display: none;
+  }
+}
+
+.topic-grid {
+  display: grid;
+  gap: 12px;
+  grid-template-columns: minmax(0, 1fr);
+}
+@media (min-width: 680px) {
+  .topic-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+.topic {
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  border-radius: var(--r-lg);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--ink);
+  transition: border-color 0.15s, transform 0.2s var(--ease);
+}
+.topic:hover {
+  border-color: var(--accent);
+}
+.topic__icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+.topic__body {
+  flex: 1;
+  min-width: 0;
+}
+.topic__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: var(--fs-lg);
+  font-weight: 750;
+  letter-spacing: -0.015em;
+  margin-bottom: 4px;
+}
+.topic__title svg {
+  color: var(--ink-mute);
+  transition: transform 0.2s var(--ease);
+}
+.topic:hover .topic__title svg {
+  transform: translateX(3px);
+  color: var(--accent-ink);
+}
+.topic__desc {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+}
+
+/* ---------- FAQ ---------- */
+.faq-tools {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.faq-filter {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  height: 46px;
+  padding: 0 14px;
+  border-radius: var(--r-md);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink-mute);
+}
+.faq-filter:focus-within {
+  border-color: var(--gold);
+  outline: 2.5px solid color-mix(in srgb, var(--focus) 35%, transparent);
+}
+.faq-filter input {
+  flex: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+  font: inherit;
+  color: var(--ink);
+}
+.faq-count {
+  font-size: var(--fs-sm);
+  color: var(--ink-mute);
+}
+
+/* ---------- 404 ---------- */
+.empty {
+  text-align: center;
+  padding: 80px 0;
+}
+.empty h1 {
+  font-size: var(--fs-3xl);
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  margin: 12px 0 10px;
+}
+.empty p {
+  color: var(--ink-soft);
+  margin-bottom: 20px;
+}

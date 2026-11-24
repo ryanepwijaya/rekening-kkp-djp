@@ -1,0 +1,147 @@
+/* ==========================================================================
+   Design tokens — Rekening & KKP DJP
+   Esensi warna dipertahankan: navy, gold, maroon, paper.
+   Identitas per jenis rekening: Giro = navy, Virtual = gold, KKP = maroon.
+   ========================================================================== */
+
+:root {
+  /* Warna inti (tidak berubah dari versi lama) */
+  --navy: #0b2545;
+  --navy-deep: #081b34;
+  --navy-700: #163a66;
+  --gold: #b8935a;
+  --gold-bright: #d4af7a;
+  --maroon: #7a2e2e;
+  --maroon-700: #5f2222;
+
+  /* Permukaan & teks — terang */
+  --paper: #f6f3ec;
+  --surface: #fffdf9;
+  --surface-2: #efeadd;
+  --surface-3: #e7e0d0;
+  --line: #e2dacb;
+  --line-strong: #c9c2b4;
+  --ink: #1b2232;
+  --ink-soft: #565247;
+  --ink-mute: #7d776a;
+
+  /* Aksen fungsional */
+  --link: var(--maroon);
+  --link-hover: var(--maroon-700);
+  --focus: #c79a52;
+
+  --wajib-bg: var(--maroon);
+  --wajib-fg: #fbf3ea;
+  --wajib-accent: var(--gold-bright);
+
+  --info-bg: #fbf8f1;
+  --info-line: #d9cdb6;
+
+  /* Identitas section */
+  --giro: var(--navy);
+  --giro-ink: var(--navy);
+  --giro-soft: #e6ebf2;
+  --virtual: var(--gold-bright);
+  --virtual-ink: #7f5f2c;
+  --virtual-soft: #f5ecda;
+  --kkp: var(--maroon);
+  --kkp-ink: var(--maroon);
+  --kkp-soft: #f4e5e1;
+  --umum: var(--navy-700);
+  --umum-ink: var(--navy-700);
+  --umum-soft: #e9edf3;
+
+  /* Chrome (sidebar) selalu navy, di mode apa pun */
+  --chrome: var(--navy);
+  --chrome-2: var(--navy-deep);
+  --chrome-ink: #e9e4d8;
+  --chrome-mute: #9aa6ba;
+  --chrome-line: rgba(212, 175, 122, 0.18);
+
+  /* Tipografi */
+  --font: "Plus Jakarta Sans Variable", "Plus Jakarta Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --fs-xs: 0.78rem;
+  --fs-sm: 0.875rem;
+  --fs-md: 1rem;
+  --fs-lg: 1.125rem;
+  --fs-xl: 1.375rem;
+  --fs-2xl: 1.75rem;
+  --fs-3xl: 2.25rem;
+  --fs-4xl: 3rem;
+
+  /* Ruang */
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 20px;
+  --sp-6: 24px;
+  --sp-8: 32px;
+  --sp-10: 40px;
+  --sp-12: 48px;
+  --sp-16: 64px;
+
+  /* Radius — hierarki: chip > tombol > panel > kartu bank */
+  --r-xs: 6px;
+  --r-sm: 10px;
+  --r-md: 14px;
+  --r-lg: 20px;
+  --r-pill: 999px;
+
+  --shadow-sm: 0 1px 0 rgba(11, 37, 69, 0.04), 0 1px 2px rgba(11, 37, 69, 0.06);
+  --shadow-md: 0 1px 0 rgba(11, 37, 69, 0.04), 0 10px 30px -14px rgba(11, 37, 69, 0.28);
+  --shadow-lg: 0 24px 60px -20px rgba(8, 27, 52, 0.45);
+
+  --sidebar-w: 284px;
+  --topbar-h: 64px;
+  --bottomnav-h: 68px;
+  --measure: 70ch;
+
+  --ease: cubic-bezier(0.2, 0.7, 0.2, 1);
+
+  color-scheme: light;
+}
+
+[data-theme="dark"] {
+  --paper: #0a1322;
+  --surface: #0f1b2e;
+  --surface-2: #14233b;
+  --surface-3: #1b2d4a;
+  --line: #22344f;
+  --line-strong: #33496a;
+  --ink: #eee8dc;
+  --ink-soft: #b9b2a3;
+  --ink-mute: #8d8778;
+
+  --link: #e7b0a6;
+  --link-hover: #f3c9c1;
+  --focus: #d4af7a;
+
+  --wajib-bg: #5e2424;
+  --wajib-fg: #fbf0e6;
+
+  --info-bg: #111f35;
+  --info-line: #2c4060;
+
+  --giro: #24497d;
+  --giro-ink: #a9c0e3;
+  --giro-soft: #15253d;
+  --virtual: #c9a46c;
+  --virtual-ink: #d9b986;
+  --virtual-soft: #231d12;
+  --kkp: #8a3838;
+  --kkp-ink: #e7aaa0;
+  --kkp-soft: #2a1717;
+  --umum: #2a4a78;
+  --umum-ink: #b6c6de;
+  --umum-soft: #16243a;
+
+  --chrome: #071426;
+  --chrome-2: #050f1e;
+
+  --shadow-sm: 0 1px 0 rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 12px 30px -14px rgba(0, 0, 0, 0.6);
+  --shadow-lg: 0 24px 60px -20px rgba(0, 0, 0, 0.75);
+
+  color-scheme: dark;
+}
