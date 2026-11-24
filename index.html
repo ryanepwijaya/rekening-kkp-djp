@@ -14,12 +14,10 @@
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <title>Rekening &amp; KKP — Direktorat Jenderal Pajak</title>
     <script>
-      // Terapkan tema sebelum render agar tidak berkedip.
+      // Default tema terang; terapkan pilihan pengguna sebelum render agar tidak berkedip.
       (function () {
         try {
-          var t = localStorage.getItem("rkkp-theme");
-          if (t !== "light" && t !== "dark") t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-          document.documentElement.dataset.theme = t;
+          document.documentElement.dataset.theme = localStorage.getItem("rkkp-theme") === "dark" ? "dark" : "light";
         } catch (e) {}
       })();
     </script>

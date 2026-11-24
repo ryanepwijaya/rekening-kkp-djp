@@ -280,7 +280,7 @@ export function VirtualOperasional() {
     <TopicPage
       sectionId="virtual"
       topic="operasional"
-      lead="Empat fase siklus hidup Rekening Satker (BPG/BPP), dari sudut pandang satker sebagai pengguna rekening. Pilih setiap fase untuk menampilkan uraian lengkap."
+      lead="Empat fase siklus hidup Rekening Satker (BPG/BPP), dari sudut pandang satker sebagai pengguna rekening."
     >
       <PhaseList fases={faseOperasionalVirtual} />
     </TopicPage>
@@ -395,7 +395,7 @@ export function VirtualPerubahan() {
     <TopicPage
       sectionId="virtual"
       topic="perubahan"
-      lead="Dua jenis perubahan yang paling sering dihadapi satker. Pilih setiap jenis untuk menampilkan langkah-langkahnya."
+      lead="Dua jenis perubahan yang paling sering dihadapi satker, beserta langkah-langkahnya."
     >
       <ChangeList items={jenisPerubahanVirtual} />
 

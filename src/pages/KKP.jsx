@@ -231,7 +231,7 @@ export function KKPOperasional() {
     <TopicPage
       sectionId="kkp"
       topic="operasional"
-      lead="Lima fase siklus penggunaan KKP, dari sudut pandang satker sebagai pengguna kartu. Pilih setiap fase untuk menampilkan uraian lengkap."
+      lead="Lima fase siklus penggunaan KKP, dari sudut pandang satker sebagai pengguna kartu."
     >
       <PhaseList fases={faseOperasionalKKP} />
     </TopicPage>
@@ -325,7 +325,7 @@ export function KKPPerubahan() {
     <TopicPage
       sectionId="kkp"
       topic="perubahan"
-      lead="Empat jenis perubahan yang paling sering dihadapi satker. Pilih setiap jenis untuk menampilkan langkah-langkahnya."
+      lead="Empat jenis perubahan yang paling sering dihadapi satker, beserta langkah-langkahnya."
     >
       <Callout tone="info">
         <p>

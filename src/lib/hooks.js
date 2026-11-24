@@ -15,13 +15,9 @@ function writeStored(key, value) {
   }
 }
 
-/** Tema terang/gelap. Default mengikuti sistem; pilihan pengguna diingat. */
+/** Tema terang/gelap. Default selalu terang; pilihan pengguna diingat. */
 export function useTheme() {
-  const [theme, setTheme] = useState(() => {
-    const saved = readStored("rkkp-theme");
-    if (saved === "light" || saved === "dark") return saved;
-    return window.matchMedia?.("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  });
+  const [theme, setTheme] = useState(() => (readStored("rkkp-theme") === "dark" ? "dark" : "light"));
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;

@@ -1442,3 +1442,50 @@ a.page-head__kicker:hover {
     padding: 8px 10px;
   }
 }
+
+/* ---------- Konten lebar penuh (halaman tanpa "Di halaman ini") ---------- */
+.article--full {
+  max-width: none;
+}
+.article--full .callout {
+  max-width: none;
+}
+
+/* ---------- Bagian bernomor (fase/jenis pada Operasional & Perubahan) ---------- */
+.sec--numbered + .sec--numbered {
+  padding-top: 40px;
+  border-top: 1px solid var(--line);
+}
+.sec__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-bottom: 10px;
+}
+.sec__title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.sec__num {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  font-size: 0.95rem;
+  font-weight: 800;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0;
+  background: var(--accent-soft);
+  color: var(--accent-ink);
+}
+.sec > .callout {
+  margin-top: 20px;
+}
+.sec > .mini-disclosure,
+.sec > .stack-lg,
+.sec > .btn-row {
+  margin-top: 20px;
+}

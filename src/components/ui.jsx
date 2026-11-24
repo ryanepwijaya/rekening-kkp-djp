@@ -1,4 +1,4 @@
-import { Fragment, createContext, useCallback, useContext, useEffect, useId, useRef, useState } from "react";
+import { Fragment, createContext, useCallback, useContext, useEffect, useId, useLayoutEffect, useRef, useState } from "react";
 import {
   ArrowRight,
   ChevronDown,
@@ -26,6 +26,8 @@ export function Page({ section = "umum", kicker, title, lead, meta, subnav, toc 
     setItems((prev) => (prev.some((p) => p.id === item.id) ? prev : [...prev, item]));
     return () => setItems((prev) => prev.filter((p) => p.id !== item.id));
   }, []);
+  // Daftar isi hanya muncul bila ada minimal 2 bagian; tanpa daftar isi, konten dibuat lebar penuh.
+  const hasToc = toc && items.length >= 2;
 
   return (
     <TocContext.Provider value={register}>
@@ -39,13 +41,20 @@ export function Page({ section = "umum", kicker, title, lead, meta, subnav, toc 
         </div>
       </header>
       <div className="container">
-        <div className={toc ? "with-toc" : undefined}>
-          <div className="article">
+        {hasToc ? (
+          <div className="with-toc">
+            <div className="article">
+              {children}
+              {after}
+            </div>
+            <Toc items={items} />
+          </div>
+        ) : (
+          <div className="article article--full">
             {children}
             {after}
           </div>
-          {toc && <Toc items={items} />}
-        </div>
+        )}
       </div>
     </TocContext.Provider>
   );
@@ -67,7 +76,6 @@ function Toc({ items }) {
     return () => io.disconnect();
   }, [items]);
 
-  if (items.length < 2) return <aside className="toc" aria-hidden="true" />;
   // urutkan sesuai posisi di dokumen
   const ordered = [...items].sort((a, b) => {
     const ea = document.getElementById(a.id);
@@ -104,16 +112,23 @@ function slugify(s) {
     .replace(/(^-|-$)/g, "");
 }
 
-export function Section({ title, lead, id, children, className = "" }) {
+export function Section({ title, lead, id, children, className = "", number, badges }) {
   const register = useContext(TocContext);
   const sid = id || slugify(title || "");
-  useEffect(() => {
+  // layout effect: daftar isi sudah terdaftar sebelum halaman tampil, jadi tata letak tidak "melompat"
+  useLayoutEffect(() => {
     if (register && title) return register({ id: sid, title });
     return undefined;
   }, [register, sid, title]);
   return (
-    <section className={`sec ${className}`} id={title ? sid : undefined}>
-      {title && <h2 className="sec__title">{title}</h2>}
+    <section className={`sec${number ? " sec--numbered" : ""} ${className}`} id={title ? sid : undefined}>
+      {badges && <div className="sec__badges">{badges}</div>}
+      {title && (
+        <h2 className="sec__title">
+          {number && <span className="sec__num">{number}</span>}
+          {title}
+        </h2>
+      )}
       {lead && <p className="sec__lead">{lead}</p>}
       {children}
     </section>

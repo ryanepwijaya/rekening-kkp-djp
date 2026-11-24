@@ -13,11 +13,11 @@ const norm = (s) =>
 export default function Faq({ tab = "giro", openId }) {
   const group = faqGroups.find((g) => g.id === tab) || faqGroups[0];
   const [filter, setFilter] = useState("");
-  const [open, setOpen] = useState(() => new Set([openId || group.items[0].id]));
+  const [open, setOpen] = useState(openId || group.items[0].id);
 
   // Saat tab atau target pertanyaan berubah (mis. dari pencarian), buka pertanyaan tersebut.
   useEffect(() => {
-    setOpen(new Set([openId || group.items[0].id]));
+    setOpen(openId || group.items[0].id);
     setFilter("");
     if (openId) {
       requestAnimationFrame(() => {
@@ -32,12 +32,16 @@ export default function Faq({ tab = "giro", openId }) {
     return group.items.filter((it) => norm(it.q).includes(q));
   }, [filter, group]);
 
-  const toggle = (id, next) =>
-    setOpen((prev) => {
-      const s = new Set(prev);
-      next ? s.add(id) : s.delete(id);
-      return s;
-    });
+  // Hanya satu jawaban terbuka: memilih pertanyaan lain otomatis menutup yang sebelumnya.
+  const toggle = (id, next) => {
+    setOpen(next ? id : null);
+    if (!next) return;
+    // Setelah jawaban sebelumnya menutup, pastikan pertanyaan yang dipilih tetap terlihat.
+    setTimeout(() => {
+      const el = document.getElementById(`faq-${id}`);
+      if (el && el.getBoundingClientRect().top < 72) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, 320);
+  };
 
   return (
     <Page
@@ -86,7 +90,7 @@ export default function Faq({ tab = "giro", openId }) {
             id={`faq-${it.id}`}
             plain
             title={it.q}
-            open={open.has(it.id)}
+            open={open === it.id}
             onToggle={(next) => toggle(it.id, next)}
           >
             {it.a}

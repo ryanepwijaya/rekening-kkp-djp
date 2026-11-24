@@ -172,17 +172,18 @@ const faseOperasional = [
   },
 ];
 
+/** Fase siklus (Operasional): tiap fase jadi satu bagian bernomor, masuk ke "Di halaman ini". */
 export function PhaseList({ fases }) {
   return (
-    <div className="disclosures">
+    <>
       {fases.map((f) => (
-        <Disclosure key={f.no} lead={f.no} title={f.title} summary={f.summary}>
+        <Section key={f.no} number={f.no} title={f.title} lead={f.summary}>
           {f.points?.length > 0 && <Bullets items={f.points} />}
           {f.superHighlight && <Callout tone="wajib">{f.superHighlight}</Callout>}
-          {f.extra}
-        </Disclosure>
+          {f.extra && <div className="mt-6">{f.extra}</div>}
+        </Section>
       ))}
-    </div>
+    </>
   );
 }
 
@@ -191,7 +192,7 @@ export function GiroOperasional() {
     <TopicPage
       sectionId="giro"
       topic="operasional"
-      lead="Empat fase siklus hidup Rekening Lainnya (RPL), dari sudut pandang satker sebagai pengguna rekening. Pilih setiap fase untuk menampilkan uraian lengkap."
+      lead="Empat fase siklus hidup Rekening Lainnya (RPL), dari sudut pandang satker sebagai pengguna rekening."
     >
       <PhaseList fases={faseOperasional} />
     </TopicPage>
@@ -255,23 +256,24 @@ const jenisPerubahan = [
   },
 ];
 
+/** Jenis perubahan: tiap jenis jadi satu bagian bernomor, masuk ke "Di halaman ini". */
 export function ChangeList({ items }) {
   return (
-    <div className="disclosures">
-      {items.map((item) => (
-        <Disclosure
+    <>
+      {items.map((item, i) => (
+        <Section
           key={item.id}
-          indent={false}
+          number={String(i + 1).padStart(2, "0")}
           badges={item.badges.map((b) => (
             <Badge key={b} kind={b === "Internal" ? "neutral" : undefined}>
               {b}
             </Badge>
           ))}
           title={item.title}
-          summary={item.summary}
+          lead={item.summary}
         >
           {item.steps?.length > 0 && <Steps items={item.steps} />}
-          {item.extra}
+          {item.extra && <div className="mt-6">{item.extra}</div>}
           {item.mutasiTab && (
             <div className="btn-row">
               <Link to={`mutasi/${item.mutasiTab}`} className="btn btn--primary">
@@ -281,9 +283,9 @@ export function ChangeList({ items }) {
             </div>
           )}
           {item.superHighlight && <Callout tone="wajib">{item.superHighlight}</Callout>}
-        </Disclosure>
+        </Section>
       ))}
-    </div>
+    </>
   );
 }
 
@@ -292,7 +294,7 @@ export function GiroPerubahan() {
     <TopicPage
       sectionId="giro"
       topic="perubahan"
-      lead="Tiga jenis perubahan yang paling sering dihadapi satker. Pilih setiap jenis untuk menampilkan langkah-langkahnya."
+      lead="Tiga jenis perubahan yang paling sering dihadapi satker, beserta langkah-langkahnya."
     >
       <Callout tone="info">
         <p>

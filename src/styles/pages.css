@@ -294,7 +294,7 @@ a.bank-card:hover .bank-card__go {
 @media (min-width: 1100px) {
   .card-fan {
     display: block;
-    height: 520px;
+    height: 430px;
   }
   .card-fan > * {
     position: absolute;
@@ -303,23 +303,22 @@ a.bank-card:hover .bank-card__go {
     animation: fan-in 0.9s var(--ease) both;
   }
   .card-fan > :nth-child(1) {
-    width: 410px;
-    left: 0;
-    top: 4px;
-    transform: rotate(-5deg);
+    left: 4%;
+    top: 0;
+    transform: rotate(-7deg);
     z-index: 1;
     animation-delay: 0.05s;
   }
   .card-fan > :nth-child(2) {
-    left: 20%;
-    top: 198px;
+    left: 18%;
+    top: 104px;
     transform: rotate(-1.5deg);
     z-index: 2;
     animation-delay: 0.15s;
   }
   .card-fan > :nth-child(3) {
-    left: 34%;
-    top: 290px;
+    left: 32%;
+    top: 208px;
     transform: rotate(4deg);
     z-index: 3;
     animation-delay: 0.25s;
@@ -689,38 +688,19 @@ a.bank-card:hover .bank-card__go {
   position: relative;
   display: block;
   width: 100%;
-  aspect-ratio: 2.25 / 1;
+  aspect-ratio: 1.586 / 1;
   color: #f4eee2;
   text-decoration: none;
   container-type: inline-size;
-  isolation: isolate;
-  border-radius: 12px;
-}
-/* lembar-lembar berikutnya di buku cek */
-.cheque::before,
-.cheque::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: -1;
-  border-radius: 12px;
-}
-.cheque::before {
-  transform: translate(9px, 9px);
-  background: #1a416f;
-  box-shadow: 0 18px 40px -18px rgba(8, 27, 52, 0.6);
-}
-.cheque::after {
-  transform: translate(4.5px, 4.5px);
-  background: #22508a;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  box-shadow: 0 18px 40px -18px rgba(8, 27, 52, 0.55);
 }
 .cheque__sheet {
   position: absolute;
   inset: 0;
   display: grid;
   grid-template-columns: 21% minmax(0, 1fr);
-  border-radius: 12px;
+  border-radius: 18px;
   overflow: hidden;
   background:
     repeating-linear-gradient(115deg, transparent 0 9px, rgba(255, 255, 255, 0.035) 9px 10px),
@@ -840,12 +820,12 @@ a.cheque:hover .bank-card__go {
   background: rgba(255, 255, 255, 0.24);
 }
 /* Lembar kecil (tablet & HP): sederhanakan isinya */
-@container (max-width: 360px) {
+@container (max-width: 280px) {
   .cheque__fields {
     display: none;
   }
 }
-@container (max-width: 280px) {
+@container (max-width: 250px) {
   .cheque__sheet {
     grid-template-columns: 16% minmax(0, 1fr);
   }
