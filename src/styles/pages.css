@@ -274,6 +274,7 @@ a.bank-card:hover .bank-card__go {
 }
 @media (max-width: 639px) {
   .card-fan {
+    align-items: start;
     grid-auto-flow: column;
     grid-auto-columns: 82%;
     grid-template-columns: none;
@@ -286,41 +287,47 @@ a.bank-card:hover .bank-card__go {
   .card-fan::-webkit-scrollbar {
     display: none;
   }
-  .card-fan .bank-card {
+  .card-fan > * {
     scroll-snap-align: center;
   }
 }
 @media (min-width: 1100px) {
   .card-fan {
     display: block;
-    height: 430px;
+    height: 520px;
   }
-  .card-fan .bank-card {
+  .card-fan > * {
     position: absolute;
     width: 360px;
     transition: transform 0.35s var(--ease), box-shadow 0.35s var(--ease);
     animation: fan-in 0.9s var(--ease) both;
   }
-  .card-fan .bank-card:nth-child(1) {
-    left: 4%;
-    top: 0;
-    transform: rotate(-7deg);
+  .card-fan > :nth-child(1) {
+    width: 410px;
+    left: 0;
+    top: 4px;
+    transform: rotate(-5deg);
     z-index: 1;
     animation-delay: 0.05s;
   }
-  .card-fan .bank-card:nth-child(2) {
-    left: 18%;
-    top: 104px;
+  .card-fan > :nth-child(2) {
+    left: 20%;
+    top: 198px;
     transform: rotate(-1.5deg);
     z-index: 2;
     animation-delay: 0.15s;
   }
-  .card-fan .bank-card:nth-child(3) {
-    left: 32%;
-    top: 208px;
+  .card-fan > :nth-child(3) {
+    left: 34%;
+    top: 290px;
     transform: rotate(4deg);
     z-index: 3;
     animation-delay: 0.25s;
+  }
+  .card-fan > .cheque:hover,
+  .card-fan > .cheque:focus-visible {
+    z-index: 5;
+    transform: rotate(0deg) translateY(-10px) scale(1.02);
   }
   .card-fan .bank-card:hover,
   .card-fan .bank-card:focus-visible {
@@ -554,12 +561,14 @@ a.bank-card:hover .bank-card__go {
     gap: 48px;
   }
 }
-.landing-head .bank-card {
+.landing-head .bank-card,
+.landing-head .cheque {
   max-width: 340px;
   transform: rotate(-3deg);
 }
 @media (max-width: 959px) {
-  .landing-head .bank-card {
+  .landing-head .bank-card,
+  .landing-head .cheque {
     display: none;
   }
 }
@@ -673,4 +682,192 @@ a.bank-card:hover .bank-card__go {
 .empty p {
   color: var(--ink-soft);
   margin-bottom: 20px;
+}
+
+/* ---------- Bilyet giro (Rekening Giro tidak punya kartu) ---------- */
+.cheque {
+  position: relative;
+  display: block;
+  width: 100%;
+  aspect-ratio: 2.25 / 1;
+  color: #f4eee2;
+  text-decoration: none;
+  container-type: inline-size;
+  isolation: isolate;
+  border-radius: 12px;
+}
+/* lembar-lembar berikutnya di buku cek */
+.cheque::before,
+.cheque::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: 12px;
+}
+.cheque::before {
+  transform: translate(9px, 9px);
+  background: #1a416f;
+  box-shadow: 0 18px 40px -18px rgba(8, 27, 52, 0.6);
+}
+.cheque::after {
+  transform: translate(4.5px, 4.5px);
+  background: #22508a;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+.cheque__sheet {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  grid-template-columns: 21% minmax(0, 1fr);
+  border-radius: 12px;
+  overflow: hidden;
+  background:
+    repeating-linear-gradient(115deg, transparent 0 9px, rgba(255, 255, 255, 0.035) 9px 10px),
+    radial-gradient(120% 90% at 100% 0%, rgba(255, 255, 255, 0.12), transparent 55%),
+    linear-gradient(135deg, #17406f 0%, var(--navy) 55%, #071a33 100%);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.16);
+}
+.cheque__stub {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+  padding: 14px 12px;
+  background: rgba(0, 0, 0, 0.16);
+  border-right: 2px dashed rgba(212, 175, 122, 0.5);
+}
+.cheque__stub-label {
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: var(--gold-bright);
+}
+.cheque__stub-line {
+  height: 1px;
+  background: rgba(244, 238, 226, 0.28);
+}
+.cheque__body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 14px 18px 14px 16px;
+  min-width: 0;
+}
+.cheque__top {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+.cheque__name {
+  display: block;
+  font-weight: 750;
+  font-size: 1rem;
+  letter-spacing: -0.01em;
+  line-height: 1.2;
+}
+.cheque__issuer {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 600;
+  color: rgba(244, 238, 226, 0.62);
+  margin-top: 2px;
+}
+.cheque__kind {
+  flex-shrink: 0;
+  padding: 2px 8px;
+  border-radius: 6px;
+  border: 1px solid rgba(212, 175, 122, 0.6);
+  color: var(--gold-bright);
+  font-size: 0.66rem;
+  font-weight: 700;
+  white-space: nowrap;
+}
+.cheque__fields {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.cheque__field {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+}
+.cheque__field-label {
+  font-size: 0.62rem;
+  font-weight: 600;
+  color: rgba(244, 238, 226, 0.6);
+  white-space: nowrap;
+}
+.cheque__field-line {
+  flex: 1;
+  height: 1px;
+  margin-bottom: 3px;
+  background: rgba(244, 238, 226, 0.3);
+}
+.cheque__amount {
+  min-width: 74px;
+  padding: 1px 8px;
+  border: 1.5px solid var(--gold-bright);
+  border-radius: 4px;
+  font-size: 0.66rem;
+  font-weight: 700;
+  color: var(--gold-bright);
+}
+.cheque__bottom {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 10px;
+}
+.cheque__code {
+  display: block;
+  font-size: clamp(1.4rem, 3vw, 1.8rem);
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 1;
+}
+.cheque__micr {
+  display: block;
+  margin-top: 5px;
+  font-family: ui-monospace, "SFMono-Regular", Menlo, Consolas, monospace;
+  font-size: 0.66rem;
+  letter-spacing: 0.06em;
+  color: rgba(244, 238, 226, 0.6);
+}
+a.cheque:hover .bank-card__go {
+  transform: translateX(3px);
+  background: rgba(255, 255, 255, 0.24);
+}
+/* Lembar kecil (tablet & HP): sederhanakan isinya */
+@container (max-width: 360px) {
+  .cheque__fields {
+    display: none;
+  }
+}
+@container (max-width: 280px) {
+  .cheque__sheet {
+    grid-template-columns: 16% minmax(0, 1fr);
+  }
+  .cheque__stub-line,
+  .cheque__issuer {
+    display: none;
+  }
+  .cheque__kind {
+    display: none;
+  }
+}
+
+/* Ikon kecil Giro di navigasi: lembar cek dengan perforasi, bukan kartu */
+.nav-item__swatch.nav-item__swatch--giro {
+  height: 15px;
+}
+.nav-item__swatch.nav-item__swatch--giro::after {
+  left: 7px;
+  top: 2px;
+  width: 0;
+  height: calc(100% - 4px);
+  border-radius: 0;
+  background: none;
+  border-left: 1.5px dashed rgba(255, 255, 255, 0.65);
 }
